@@ -24,5 +24,31 @@ const createReview = async(req, res)=> {
     res.status(409).json({message: error.message})
   }
 }
+const updateReview = async (req, res) => {
+  const { id: _id } = req.params;
 
-export{getReviews, createReview};
+  const review = req.body;
+
+  if (!mongoose.Types.ObjectId.isValid(_id)) {
+      return res.status(404).send("This id doesnt belong to any review");
+  }
+
+  const updatedReview = await Review.findByIdAndUpdate(_id, story, { new: true });
+
+  res.json(updatedReview);
+}
+
+const deleteReview= async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(404).send("This id doesnt belong to any review");
+  }
+
+  await Review.findByIdAndRemove(id);
+
+  res.json({ message: "Review deleted successfully" });
+}
+
+
+export{getReviews, createReview, deleteReview, updateReview};

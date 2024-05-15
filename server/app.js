@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 import reviewRoutes from "./routes/review.js"
+import userRoutes from "./routes/users.js";
 
 
 const app = express();
@@ -11,6 +12,7 @@ app.use(bodyParser.json({limit: "32mb", extended: true}));
 app.use(bodyParser.urlencoded({limit: "32mb", extended: true}));
 app.use(cors());
 app.use("/reviews", reviewRoutes)
+app.use("/user", userRoutes)
 
 const MONGO_URI = "mongodb+srv://Gideon:Gideon123@cluster1.yrqzscx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1"
 
