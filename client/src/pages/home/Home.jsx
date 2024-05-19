@@ -3,6 +3,7 @@ import "./Home.css";
 import image2 from "../../images/image2.jpg";
 import image4 from "../../images/image4.jpg";
 import image5 from "../../images/image5.jpg";
+import image8 from "../../images/image8.pdf"
 
 const {Footer} = Layout;
 
@@ -10,9 +11,14 @@ const Home = () => {
   return (
     <div>
       <Layout>
-        <div className="title" class="mt-0">
-        <title>BRIGHTER WORLD-PROGRAMME</title>
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <object data={image8} type="application/pdf" width="80" height="80" class="d-inline-block align-text-top"></object>
+            BRIGHTER-WORLD
+          </a>
         </div>
+      </nav>
         <div className="navbarHeader">
           <header id="header">
             <div class="overlay">
@@ -20,7 +26,7 @@ const Home = () => {
                 <div class="row text-center">
                   <div class="col">
                     <h1 class="display-4">BRIGHTER WORLD</h1>
-                    <p class="text-muted">BW Microfinance is a registered company limited by guarantee</p>
+                    <p class="text-muted">Brighter world is a company registered under companies Act in May 2016 as limited by guarantee. Its main aim is to build capacity of small entrepreneurs to realize their full potential through trainings and affordable credit hence financial inclusion. Financial inclusion is defined as the provision of “a full suite of quality financial services, provided at affordable prices, in a convenient manner, and with dignity for the clients”</p>
   
                   </div>
                 </div>
@@ -123,7 +129,7 @@ const Home = () => {
                   <div class="text-py-2">
                     Email*
                   </div>
-                  <input type="email" class="py-2" name="" value=""/>
+                  <input type="email" class="py-2" value="email" />
                 </div>
               <div class="msg">
                 <div class="text-py-2">
@@ -132,7 +138,7 @@ const Home = () => {
                 <textarea name="name" rows="2" cols="30"></textarea>
                 </div>
                 <div class="btn">
-                  <button type="submit" name="button"></button>
+                  <button type="submit" name="button">Submit</button>
                 </div>
               </form>
             </div>

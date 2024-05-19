@@ -38,11 +38,11 @@ const About = () => {
           <section>
           <div class="container">
             <div class="row mt-5">
-              <h1 class="text-center py-3">Core Values</h1>
+              <h1 class="core text-center py-3">Core Values</h1>
               <div class="col-md-4 text-center">
                 <i class="fa-brands fa-odnoklassniki fa-4x"></i>
-                <h3 class="mt-3">Empowerment</h3>
-                <p><b>We believe in empowering individuals to achieve financial independence and self-sufficiency.</b>Through our microfinance services, we provide the tools, resources, and support necessary for individuals to take control of their financial future. By fostering entrepreneurship and self-reliance, we help our clients build sustainable livelihoods and create lasting change in their communities.</p>
+                <h3 class="mt-3">Transparency</h3>
+                <p><b>At the heart of our operations is transparency. </b>We believe that open communication and clear information are crucial in building strong relationships. By being transparent in our dealings, we ensure that our customers, partners, and team members always have a complete and accurate understanding of our processes, decisions, and actions. This commitment to openness fosters trust and accountability at every level of our organization.</p>
               </div>
               <div class="col-md-4 text-center">
                 <i class="fa-solid fa-rocket fa-4x"></i>
@@ -54,34 +54,37 @@ const About = () => {
                 <h3 class="mt-3">Inclusivity</h3>
                 <p><b>We are dedicated to promoting financial inclusion for all, regardless of background or circumstances.</b>We strive to reach underserved and marginalized populations who lack access to traditional financial services. Our goal is to create equitable opportunities for everyone to participate in and benefit from economic growth, fostering a more inclusive and just society.</p>
               </div>
+              <div class="col-md-4 text-center">
+              <i class="fa-solid fa-user-plus"></i>
+                <h3 class="mt-3">Teamwork</h3>
+                <p><b>Success is a collective effort.</b>Our dedication to teamwork means we value the diverse skills, ideas, and perspectives each team member brings. We strive to create a collaborative environment where everyone can contribute, learn, and grow. By working together towards common goals, we achieve more and celebrate our victories as one united team.</p>
+              </div>
+              <div class="col-md-4 text-center">
+              <i class="fa-solid fa-hand-holding-heart"></i>
+                <h3 class="mt-3">Trustworthiness</h3>
+                <p><b>Trust is the foundation of all meaningful relationships.</b>We are committed to being reliable, honest, and ethical in all our interactions. Our promise is to uphold the highest standards of integrity and professionalism, ensuring that our customers and partners can always count on us. By consistently delivering on our commitments, we earn and maintain the trust of those we serve.</p>
+              </div>
+              <div class="col-md-4 text-center">
+              <i class="fa-solid fa-users"></i>
+                <h3 class="mt-3">Customer-Oriented</h3>
+                <p><b>Our customers are at the core of everything we do.</b>We are dedicated to understanding their needs and exceeding their expectations. By prioritizing customer satisfaction and delivering personalized experiences, we build long-lasting relationships that are based on mutual respect and value. Our goal is to be not just a service provider, but a trusted partner in our customers' success.</p>
+              </div>
             </div>
           </div>
           </section>
           <section>
             <div class="container-fluid mx-auto">
-                <div class=" text-center">
+                <div class="mission text-center">
                   <h1>Our Mission</h1>
-                  <p>At Brighter World, our mission is to empower underserved communities through accessible and sustainable financial services. We aim to:</p>
-                  <ol class="text-center">
-                    <li><b>Promote Financial Inclusion:</b>Provide affordable microloans and financial education to individuals and small businesses who lack access to traditional banking, enabling them to achieve financial stability and independence.</li>
-                    <li><b>Foster Economic Growth:</b>Support entrepreneurship and small business development by offering the necessary resources and mentorship to help our clients grow and succeed, thereby contributing to the overall economic development of their communities.</li>
-                    <li><b>Enhance Quality of Life: </b>Improve the living conditions of our clients by enabling them to invest in their education, health, and housing, ensuring a better future for themselves and their families.</li>
-                  </ol>
-                  <p>Through our commitment to these goals, we strive to create a world where everyone has the opportunity to thrive financially and contribute to the prosperity of their communitie</p>
+                  <p>To   provide micro, small and medium entrepreneurs with the wherewithal to manage their financial resources efficiently through economic empowerment, capacity building and business Advisory services so as to improve the quality of their lives.</p>
                 </div>
             </div>
           </section>
 
           <section>
             <div class="container-fluid text-center">
-              <h1 class="text-center">Our Vision</h1>
-              <p>At Brighter World, we envision a future where technology is leveraged to create positive change and empower individuals and businesses worldwide. Our vision is shaped by three core principles:</p>
-              <ol>
-                <li><b>Innovation:</b> We strive to be at the forefront of technological innovation, constantly pushing boundaries and exploring new possibilities. By embracing emerging technologies and creative thinking, we aim to develop cutting-edge solutions that address the evolving needs of our clients and society as a whole.</li>
-                <li><b>Empowerment:</b>We believe in the transformative power of technology to empower individuals and businesses to reach their full potential. Whether it's through streamlined processes, enhanced productivity, or expanded opportunities, we seek to empower our clients to achieve their goals and unlock new opportunities for growth and success.</li>
-                <li><b>Impact: </b> Ultimately, our vision is driven by a desire to make a meaningful impact on the world around us. We measure our success not just by the projects we deliver, but by the positive outcomes we enable for our clients and communities. Whether it's driving social change, advancing environmental sustainability, or fostering economic development, we are committed to using technology as a force for good.</li>
-              </ol>
-              <p>By staying true to these principles, we are working towards a future where technology is not just a tool, but a catalyst for positive change and human progress. Join us on this journey as we strive to create a better, brighter future for all.</p>
+              <h1 class="vision text-center">Our Vision</h1>
+              <p>To empower the entrepreneurs to take greater control of their business by increasing opportunities for making productive and informed economic investments.</p>
             </div>
           </section>
 
@@ -89,10 +92,10 @@ const About = () => {
             <div class="container">
               <div class="row">
                 <div class="col-md-6 text-center">
-                <img class="w-50 h-50 rounded-circle" src={image7}  alt="image7" />
-                <p>Esther Lemeta</p>
-                <b>CEO BRIGHTER WORLD</b>
-                <p>As the CEO of Brighter World, it is my honor to introduce you to our mission and the work we are passionate about. Our organization is dedicated to transforming lives and communities through innovative and accessible microfinance solutions.</p>
+                  <img class="w-50 h-50 rounded-circle" src={image7}  alt="image7" />
+                  <p>Esther Lemeta</p>
+                  <b>CEO BRIGHTER WORLD</b>
+                  <p>As the CEO of Brighter World, it is my honor to introduce you to our mission and the work we are passionate about. Our organization is dedicated to transforming lives and communities through innovative and accessible microfinance solutions.</p>
                 </div>
                 <div class="col-md-6 text-center">
                   <img class="w-50 h-50 rounded-circle" src={image8} alt="" />
