@@ -1,14 +1,10 @@
 import React from 'react'
 import "./footer.css"
-import { Layout } from 'antd'
-
-const {Footer} = Layout;
 
 const footer = () => {
   return (
-    <div>
-      <Footer>
-        <footer id="footer" class="py-5">
+    <div id="footer"  >
+        <footer style={{width: "100vh"}} class="py-5">
           <div class="container">
             <div class="row">
               <div class="col-md-6">
@@ -16,10 +12,10 @@ const footer = () => {
                   <h2>Follow Us</h2>
                   <p>Stay connected with us and be part of a global movement empowering individuals through financial inclusion. By following us on social media, you'll receive the latest updates on our projects, success stories, and opportunities to get involved. Join our community and see how microfinance is transforming lives every day.</p>
                 </div>
-                <div class="social-d-flex flex-row">
-                  <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                  <a href="#"><i class="fa-brands fa-facebook"></i></a> 
-                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <div class="social-d-flex flex-row py-5">
+                  <a href="#"><i class="fa-brands fa-twitter p-2 m-2"></i></a>
+                  <a href="#"><i class="fa-brands fa-facebook p-2"></i></a> 
+                  <a href="#"><i class="fa-brands fa-instagram p-2"></i></a>
                 </div>
               </div>
               <div class="col-md-6">
@@ -30,7 +26,7 @@ const footer = () => {
                       <div class="text-py-2">
                         Email*
                       </div>
-                      <input type="email" class="py-2" value="email" />
+                      <input type="email" class="py-2" />
                     </div>
                   <div class="msg">
                     <div class="text-py-2">
@@ -64,7 +60,6 @@ const footer = () => {
             </div>
           </div>
         </footer>
-      </Footer>
     </div>
   )
 }

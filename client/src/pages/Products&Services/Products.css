@@ -1,0 +1,28 @@
+.card{
+  position: relative;
+  cursor: pointer;
+}
+.card-body{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-color: rgb(240, 168, 26);
+  opacity: 0;
+}
+.card:hover .card-body{
+  opacity: .8;
+}
+.imgText{
+  position: absolute;
+  color: black;
+}
+#product{
+  background-color: rgb(255, 220, 61);
+}
+.img-fluid{
+  width: 450px;
+  height: 450px;
+}

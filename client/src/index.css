@@ -14,3 +14,26 @@ body{
 .appWrapper{
   text-align: center;
 }
+#product{
+  color: coral;
+}
+@media screen and (max-width :1200px){
+  #header{
+    background-size: 1200px 100vh;
+  }
+  }
+  @media screen and (max-width :992px){
+    #header{
+      background-size: 990px 100vh;
+  }
+  }
+  @media screen and (max-width :768px){
+    #header{
+      background-size: 760px 100vh;
+  }
+}
+@media screen and (max-width :576px){
+  #header{
+    background-size: 570px 100vh;
+}
+}

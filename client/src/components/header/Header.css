@@ -1,0 +1,17 @@
+#header{
+
+  height: 100vh;
+}
+.display-4{
+  margin-top: 20px;
+}
+#header.overlay{
+  background-color: rgba(26, 0, 26,0.4);
+  height: 100vh;
+}
+.btn-outline-secondary{
+  cursor: pointer;
+}
+.btn-btn-outline-secondary:hover{
+  background-color:  #e7b00b;
+}

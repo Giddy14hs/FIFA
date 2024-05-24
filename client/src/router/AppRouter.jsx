@@ -7,6 +7,13 @@ import Login from '../pages/login/AuthForm'
 import PrivateRouter from './PrivateRouter'
 import Products from "../pages/Products&Services/Products"
 import Careers from "../pages/careers/Careers"
+import Loans from "../pages/loans/businessLoans/business"
+import Moans from "../pages/loans/msingiLoans/msingi"
+import Soans from "../pages/loans/salariedLoans/salaried"
+import Goans from "../pages/loans/groupLoans/group"
+import Ioans from "../pages/loans/individualLoans/individual"
+import Ssoans from "../pages/loans/specialLoans/special"
+
 import Footer from "../components/footer/footer"
 import {Layout} from "antd"
 
@@ -24,6 +31,12 @@ const AppRouter = () => {
           </Route>
           <Route path='products' element={<Products />} />
           <Route path='careers' element={<Careers />} />
+          <Route path='businessloans' element={<Loans />} />
+          <Route path='msingiloans' element={<Moans />} />
+          <Route path='salariedloans' element={<Soans />} />
+          <Route path='grouploans' element={<Goans />} />
+          <Route path='individualloans' element={<Ioans />} />
+          <Route path='specialloans' element={<Ssoans />} />
         </Routes>
         <Footer/>
       </Layout>

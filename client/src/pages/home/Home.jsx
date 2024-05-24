@@ -1,24 +1,15 @@
-import { Layout } from "antd"
+//import { Layout } from "antd"
 import "./Home.css";
 import image2 from "../../images/image2.jpg";
 import image4 from "../../images/image4.jpg";
 import image5 from "../../images/image5.jpg";
-import image8 from "../../images/image8.pdf"
 
-const {Footer} = Layout;
+
+
 
 const Home = () => {
   return (
     <div>
-      <Layout>
-      <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <object data={image8} type="application/pdf" width="80" height="80" class="d-inline-block align-text-top"></object>
-            BRIGHTER-WORLD
-          </a>
-        </div>
-      </nav>
         <div className="navbarHeader">
           <header id="header">
             <div class="overlay">
@@ -105,7 +96,6 @@ const Home = () => {
       </div>
     </section>
     </div>
-    </Layout>
     </div>
   )
 }

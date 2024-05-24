@@ -1,18 +1,21 @@
-//import "./Navbar.css"
+import "./Navbar.css"
+import {Link} from "react-router-dom"
+import image17 from "../../images/image17.jpg"
 
 const Navbar = () => {
   return (
     <div>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg bg-warning ">
+      <div class="container-fluid">
+        <img src={image17} alt="" style={{width: "100px", height: "100px"}}/>
+      <a class="navbar-brand" href="#"><b>BRIGHTER-WORLD PROGRAMME</b></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
+      </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle active" aria-current="page" href="/">Home</a>
+          <Link class="nav-link dropdown-toggle active" aria-current="page" to="/">Home</Link>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -20,7 +23,7 @@ const Navbar = () => {
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="/about">About</a>
+          <Link class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" to="/about">About</Link>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Mission</a></li>
             <li><a class="dropdown-item" href="#">Vision</a></li>
@@ -28,19 +31,19 @@ const Navbar = () => {
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="/products" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <Link class="nav-link dropdown-toggle" to="/products" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Products&Services
-          </a>
+          </Link>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#mission">Missions</a></li>
-            <li><a class="visions dropdown-item" href="#">Visions</a></li>
+            <li><a class=" dropdown-item" href="#">Visions</a></li>
           </ul>
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="/careers" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <Link class="nav-link dropdown-toggle" to="/careers" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Careers
-          </a>
+          </Link>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Action</a></li>
                 <li><a class="dropdown-item" href="#">Another action</a></li>
