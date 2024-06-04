@@ -206,7 +206,7 @@ const Products = () => {
               </div>
               <h3>Savings Plan</h3>
               <p>The product is for our clients, encouraging them to save for a rainy day, emergency, asset, investment or holidays and family needs.</p>
-              <button type="button" name="button" className="btn-btn-outline-secondary px-3">Read More</button>
+              <button type="button" name="button" className="btn-btn-outline-secondary px-3" onClick={() => navigate('/savingsplan')}>Read More</button>
             </div>
             <div className="col-md-6">
               <div className="card-img">
@@ -220,7 +220,7 @@ const Products = () => {
               </div>
               <h3>Benevolent Fund</h3>
               <p>This product is to support our client in times of demise of one of the nuclear family members.</p>
-              <button type="button" name="button" className="btn-btn-outline-secondary px-3">Read More</button>
+              <button type="button" name="button" className="btn-btn-outline-secondary px-3" onClick={() => navigate('/benevolentfund')}>Read More</button>
             </div>
           </div>
         </div>

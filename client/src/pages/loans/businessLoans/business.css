@@ -1,0 +1,69 @@
+.business-container {
+  display: block;
+  justify-content: space-between;
+}
+
+.business-content {
+  flex: 1;
+}
+
+.form-container {
+  flex: 1;
+}
+/*form css*/
+
+body {
+  font-family: Arial, sans-serif;
+}
+.form-container {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #333;
+  color: #ccc;
+}/*
+.container h2 {
+  text-align: center;
+  color: #ffcc00;
+}*/
+/*e
+.container label {
+  display: block;
+  margin-top: 10px;
+  color: #ffcc00;
+}
+.container input, .container select {
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+}
+.container .gender {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 5px;
+}
+.container .gender input {
+  width: auto;
+  margin: 0;
+}
+.container .buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.container .buttons input {
+  width: 48%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+}
+.container .buttons .submit {
+  background-color: #4CAF50;
+}
+.container .buttons .cancel {
+  background-color: #f44336;
+}*/

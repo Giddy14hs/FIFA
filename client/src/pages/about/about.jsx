@@ -10,7 +10,7 @@ const About = () => {
       <Layout>
       <section id="about" class="py-5">
             <div class="container">
-              <div class="row">
+              <div class="row about">
               <h1 class="text-center">About Us</h1>
                 <div class="col-md-12 text-center py-5">
                   <h3>Empowering Lives Through Financial Inclusion</h3>

@@ -13,6 +13,8 @@ import Soans from "../pages/loans/salariedLoans/salaried"
 import Goans from "../pages/loans/groupLoans/group"
 import Ioans from "../pages/loans/individualLoans/individual"
 import Ssoans from "../pages/loans/specialLoans/special"
+import Savings from "../pages/loans/savingsPlan/savings"
+import Benevolent from "../pages/loans/benevolentFund/benevolent"
 
 import Footer from "../components/footer/footer"
 import {Layout} from "antd"
@@ -37,6 +39,8 @@ const AppRouter = () => {
           <Route path='grouploans' element={<Goans />} />
           <Route path='individualloans' element={<Ioans />} />
           <Route path='specialloans' element={<Ssoans />} />
+          <Route path='savingsplan' element={<Savings />} />
+          <Route path='benevolentfund' element={<Benevolent />} />
         </Routes>
         <Footer/>
       </Layout>

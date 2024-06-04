@@ -1,8 +1,8 @@
 import React from 'react'
-import "./special.css"
+import "./savings.css"
 import { Layout } from 'antd'
 
-const special = () => {
+const savings = () => {
   return (
     <Layout>
     <div class="container">
@@ -10,15 +10,14 @@ const special = () => {
             <div className="" id='business'>
                 <div class="col">
                 <img />
-                <h1 className="text-center">Special Loans</h1>
+                <h2 className="text-center">Savings Plan</h2>
                 <ul>
-                  <h4>All special loans will be serviced for a maximum of 3 months.</h4>
+                  <h4>Terms</h4>
                   <ol>
-                    <li>Clients will have serviced 1st loans. </li>
-                    <li>All special loans should have a separate savings from business loans.</li>
-                    <li>Be of good standing with the group.</li>
+                    <li>Withdrawal can be done twice a year. </li>
+                    <li>Opening balance kshs.300</li>
                   </ol><br></br>
-                  </ul>
+                </ul>
                 </div>
             </div>
       </div>
@@ -34,7 +33,7 @@ const special = () => {
                 </div>
                 
                 <div class="form-group">
-                  <label>Are you a Brighter-World Programme Account Holder</label><br></br>
+                  <label>Are you a Brighter-World Programme Account Holder</label>
                     <label><input type="radio" name="true" value="" required/>Yes</label>
                     <label><input type="radio" name="true" value=""/> No</label>
                 </div>
@@ -69,4 +68,4 @@ const special = () => {
   )
 }
 
-export default special;
+export default savings
