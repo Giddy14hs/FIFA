@@ -1,7 +1,20 @@
 import React from 'react'
 import "./footer.css"
+import { createContact } from '../../actions/review';
+import {useDispatch} from 'react-redux'
+import {Form} from "antd"
 
-const footer = () => {
+const Footer = () => {
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (formValues) =>{
+
+    //formValues.preventDefault();
+
+    dispatch(createContact(formValues))
+  }
+
   return (
     <div id="footer"  >
         <footer style={{width: "100vh"}} class="py-5">
@@ -21,7 +34,7 @@ const footer = () => {
               <div class="col-md-6">
                 <div class="second content">
                   <h2>Contact Us</h2>
-                  <form class="" action="index.html" method="post">
+                  <Form id="contactForm" action="index.html" method="post" onSubmit={handleSubmit}>
                     <div class="email">
                       <div class="text-py-2">
                         Email*
@@ -34,10 +47,10 @@ const footer = () => {
                     </div>
                     <textarea name="name" rows="2" cols="30"></textarea>
                     </div>
-                    <div class="btn">
+                    <div class="btn" id='myButton'>
                       <button type="submit" name="button">Submit</button>
                     </div>
-                  </form>
+                  </Form>
                 </div>
               </div>
               <div class="col-md-6">
@@ -64,4 +77,4 @@ const footer = () => {
   )
 }
 
-export default footer;
+export default Footer;
