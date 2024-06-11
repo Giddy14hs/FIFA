@@ -1,13 +1,11 @@
 const storyReducer = (state = [], action) => {
   switch (action.type) {
-      case "FETCH_ALL_REVIEWS":
+      case "FETCH_ALL_CONTACTS":
           return action.payload;
-      case "CREATE_REVIEW":
+      case "CREATE_CONTACT":
           return [...state, action.payload];
-      case "UPDATE_REVIEW":
-          return state.map(review => review._id === action.payload._id ? action.payload : story);
-      case "DELETE_REVIEW":
-          return state.filter(review => review._id !== action.payload);
+      case "CREATE_FORMS":
+          return [...state, action.payload];
       default:
           return state;
   }

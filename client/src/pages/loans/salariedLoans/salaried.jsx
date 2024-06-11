@@ -1,8 +1,23 @@
 import React from 'react'
 import "./salaried.css"
-import { Layout } from 'antd'
+import { Layout, Form, Input, Radio, Checkbox, Button } from 'antd'
+import { createForms } from '../../../api'
+import { useDispatch } from 'react-redux'
 
-const salaried = () => {
+const Salaried = () => {
+  const [form] = Form.useForm();
+
+  const dispatch = useDispatch();
+
+
+  const handleSubmit = (formValues) =>{
+
+    //formValues.preventDefault();
+
+    dispatch(createForms(formValues))
+    form.resetFields();
+  }
+
   return (
     <Layout>
     <div class="container">
@@ -30,40 +45,64 @@ const salaried = () => {
           <h4>Interested in this product??</h4>
           <b>Fill the form below</b>
             <div>
-              <form class="form-control">
-                <div class="form-group">
-                  <label for="name"> Name</label>
-                  <input type="text" id="name" name="name" placeholder="Enter Name" required/>
-                </div>
+            <Form form={form} onFinish={handleSubmit} className="form-control">
+                <Form.Item
+                  label="Name"
+                  name="name"
+                  rules={[{ required: true, message: 'Please enter your name!' }]}
+                >
+                  <Input placeholder="Enter Name" />
+                </Form.Item>
                 
-                <div class="form-group">
-                  <label>Are you a Brighter-World Programme Account Holder</label>
-                    <label><input type="radio" name="true" value="" required/>Yes</label>
-                    <label><input type="radio" name="true" value=""/> No</label>
-                </div>
+                <Form.Item
+                  label="Are you a Brighter-World Programme Account Holder"
+                  name="accountHolder"
+                  rules={[{ required: true, message: 'Please select an option!' }]}
+                >
+                  <Radio.Group>
+                    <Radio value="yes">Yes</Radio>
+                    <Radio value="no">No</Radio>
+                  </Radio.Group>
+                </Form.Item>
 
-                <div class="form-group">
-                  <label for="email">E-mail</label>
-                  <input type="email" id="email" name="email" placeholder="Enter E-mail" required/>
-                </div>
-                
+                <Form.Item
+                  label="E-mail"
+                  name="email"
+                  rules={[
+                    { required: true, message: 'Please enter your email!' },
+                    { type: 'email', message: 'Please enter a valid email!' }
+                  ]}
+                >
+                  <Input placeholder="Enter E-mail" />
+                </Form.Item>
 
-                <div class="form-group">
-                  <label for="phone">Phone</label>
-                  <input type="tel" id="phone" name="phone" placeholder="Enter Phone" required/>
-                </div>
-                
+                <Form.Item
+                  label="Phone"
+                  name="phone"
+                  rules={[{ required: true, message: 'Please enter your phone number!' }]}
+                >
+                  <Input placeholder="Enter Phone" />
+                </Form.Item>
 
-                <div class="form-group">
-                  <label><input type="checkbox" name="terms" required/> I Agree to the Terms of use</label>
-                </div>
-                
+                <Form.Item
+                  name="terms"
+                  valuePropName="checked"
+                  rules={[{ validator: (_, value) => value ? Promise.resolve() : Promise.reject('Should accept terms') }]}
+                >
+                  <Checkbox>
+                    I Agree to the Terms of use
+                  </Checkbox>
+                </Form.Item>
 
-                <div class="buttons">
-                    <input type="submit" value="Submit" class="submit"/>
-                    <input type="button" value="Cancel" class="cancel"/>
-                </div>
-              </form>
+                <Form.Item>
+                  <Button type="primary" htmlType="submit" className="submit">
+                    Submit
+                  </Button>
+                  <Button htmlType="button" className="cancel" onClick={() => form.resetFields()}>
+                    Cancel
+                  </Button>
+                </Form.Item>
+              </Form>
             </div>
         </section>
       </div>
@@ -72,4 +111,4 @@ const salaried = () => {
   )
 }
 
-export default salaried;
+export default Salaried;

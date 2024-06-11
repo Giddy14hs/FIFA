@@ -3,7 +3,7 @@ import ReactDom from 'react-dom/client'
 import 'bootstrap/dist/css/bootstrap.css'
 import {Provider} from "react-redux"
 import {createStore, applyMiddleware, compose} from "redux"
-import {thunk} from "redux-thunk"
+import {thunk }from "redux-thunk"
 import reducers from "./reducers"
 
 

@@ -1,17 +1,27 @@
 import mongoose from "mongoose"
-import Review from "../models/contactModel.js"
+import Contact from "../models/contactModel.js"
 
+const getContacts = async(req, res)=>{
+  
+  try{
+    const contactSubmit = await Contact.find();
+    res.status(200).json(contactSubmit);
+  }catch(error){
+    res.status(404).json({message: error.message})
+  }
+}
 const createContact = async(req, res)=> {
-  const body = req.body;
+  const {email, message} = req.body;
 
-  const newReview = new Review({
-    ...body
+  const newContact = new Contact({
+    email,
+    message
   });
   try {
-    await newReview.save();
-    res.status(201).json(newReview);
+    await newContact.save();
+    res.status(201).json(newContact);
   } catch (error) {
     res.status(409).json({message: error.message})
   }
 }
-export{createContact};
+export{getContacts, createContact};

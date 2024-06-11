@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import reviewRoutes from "./routes/contact.js"
 import userRoutes from "./routes/users.js";
-
+import formRoutes from "./routes/forms.js"
 
 const app = express();
 
@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({limit: "32mb", extended: true}));
 app.use(cors());
 app.use("/Contact", reviewRoutes)
 app.use("/user", userRoutes)
+app.use("/Products", formRoutes)
 
 const MONGO_URI = "mongodb+srv://Lemiso123:KGM3mF8eV59.k_H@cluster3.7trciu3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster3"
 

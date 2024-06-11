@@ -1,18 +1,25 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import "./footer.css"
-import { createContact } from '../../actions/review';
+import { createContact, getContacts } from '../../actions/review';
 import {useDispatch} from 'react-redux'
-import {Form} from "antd"
+import {Form, Input, Button} from "antd"
 
 const Footer = () => {
 
+  const [form] = Form.useForm();
+
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getContacts(), [dispatch])
+  })
 
   const handleSubmit = (formValues) =>{
 
     //formValues.preventDefault();
 
     dispatch(createContact(formValues))
+    form.resetFields();
   }
 
   return (
@@ -34,23 +41,25 @@ const Footer = () => {
               <div class="col-md-6">
                 <div class="second content">
                   <h2>Contact Us</h2>
-                  <Form id="contactForm" action="index.html" method="post" onSubmit={handleSubmit}>
-                    <div class="email">
-                      <div class="text-py-2">
-                        Email*
-                      </div>
-                      <input type="email" class="py-2" />
-                    </div>
-                  <div class="msg">
-                    <div class="text-py-2">
-                      Message*
-                    </div>
-                    <textarea name="name" rows="2" cols="30"></textarea>
-                    </div>
-                    <div class="btn" id='myButton'>
-                      <button type="submit" name="button">Submit</button>
-                    </div>
-                  </Form>
+                  <Form form={form} onFinish={handleSubmit}>
+                  <Form.Item
+                    name="email"
+                    rules={[{ required: true, message: 'Please input your email!', type: 'email' }]}
+                  >
+                    <Input placeholder="Email" allowClear/>
+                  </Form.Item>
+                  <Form.Item
+                    name="message"
+                    rules={[{ required: true, message: 'Please input your message!' }]}
+                  >
+                    <Input.TextArea allowClear rows={2} placeholder="Message" />
+                  </Form.Item>
+                  <Form.Item>
+                    <Button type="primary" htmlType="submit">
+                      Submit
+                    </Button>
+                  </Form.Item>
+                </Form>
                 </div>
               </div>
               <div class="col-md-6">

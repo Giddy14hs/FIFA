@@ -15,7 +15,11 @@ api.interceptors.request.use((req) => {
 
 });
 
-export const createContact = async (newContact)=> api.post("/Contact", newContact);
+export const fetchContacts = async() => {api.get("/contact");}
+
+export const createContact = async (newContact)=> api.post("/contact", newContact);
+
+export const createForms = async (newForm)=> api.post("/Products", newForm);
 
 export const login = async(formValues) => api.post("/user/login", formValues);
 export const signup = async(formValues) => api.post("/user/signup", formValues);
