@@ -4,6 +4,8 @@ const storyReducer = (state = [], action) => {
           return action.payload;
       case "CREATE_CONTACT":
           return [...state, action.payload];
+      case "FETCH_FORMS":
+          return action.payload;
       case "CREATE_FORMS":
           return [...state, action.payload];
       default:

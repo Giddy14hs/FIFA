@@ -1,7 +1,7 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import "./benevolent.css"
 import { Layout, Form, Input, Radio, Checkbox, Button } from 'antd'
-import { createForms } from '../../../api'
+import { getForms, createForms } from "../../../actions/forms.js"
 import { useDispatch } from 'react-redux'
 
 const Benevolent = () => {
@@ -9,12 +9,24 @@ const Benevolent = () => {
 
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(getForms()); 
+  }, [dispatch]
+  );
 
   const handleSubmit = (formValues) =>{
+    
+    const newForm = {
+      name: formValues.name,
+      radioInput: formValues.accountHolder,
+      userEmail: formValues.email,
+      phoneNumber: formValues.phone.replace(/\D/g, '')
+    }
+
 
     //formValues.preventDefault();
 
-    dispatch(createForms(formValues))
+    dispatch(createForms(newForm))
     form.resetFields();
   }
 

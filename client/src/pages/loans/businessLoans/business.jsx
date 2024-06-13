@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import "./business.css"
-import {Layout, Form, Input, Radio, Checkbox, Button } from "antd"
-import { createForms } from '../../../api'
+import {Layout, Form, Input, Radio, Checkbox, Button, message } from "antd"
+import { getForms,createForms } from "../../../actions/forms.js"
 import { useDispatch } from 'react-redux'
 
 
@@ -11,14 +11,33 @@ const Business = () => {
 
   const dispatch = useDispatch();
 
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (formValues) =>{
+  useEffect(() => {
+    dispatch(getForms()); 
+  }, [dispatch]
+  );
 
-    //formValues.preventDefault();
+  const handleSubmit = async (formValues) =>{
 
-    dispatch(createForms(formValues))
-    form.resetFields();
-  }
+    const newForm = {
+      name: formValues.name,
+      radioInput: formValues.accountHolder,
+      userEmail: formValues.email,
+      phoneNumber: formValues.phone.replace(/\D/g, '')
+    }
+
+    setLoading(true);
+    try {
+      await dispatch(createForms(newForm));
+      form.resetFields();
+      message.success("Form submitted successfully!");
+    } catch (error) {
+      message.error(error.message);
+    } finally{
+      setLoading(false)
+    }
+  };
 
   return (
     <Layout>
@@ -61,12 +80,11 @@ const Business = () => {
                   name="accountHolder"
                   rules={[{ required: true, message: 'Please select an option!' }]}
                   className="form-item-radio-group"
-                ><div>
+                >
                   <Radio.Group>
                     <Radio value="yes">Yes</Radio>
                     <Radio value="no">No</Radio>
                   </Radio.Group>
-                </div>
                 </Form.Item>
 
                 <Form.Item
@@ -83,7 +101,10 @@ const Business = () => {
                 <Form.Item
                   label="Phone"
                   name="phone"
-                  rules={[{ required: true, message: 'Please enter your phone number!' }]}
+                  rules={[
+                    { required: true, message: 'Please enter your phone number!' },
+                    { pattern: /^\d{10}$/, message: 'Please enter a valid phone number!' } // Adjust regex to your needs
+                  ]}
                 >
                   <Input placeholder="Enter Phone" />
                 </Form.Item>
@@ -99,7 +120,7 @@ const Business = () => {
                 </Form.Item>
 
                 <Form.Item>
-                  <Button type="primary" htmlType="submit" className="submit">
+                  <Button type="primary" htmlType="submit" className="submit" loading={loading}>
                     Submit
                   </Button>
                   <Button htmlType="button" className="cancel" onClick={() => form.resetFields()}>
@@ -113,6 +134,6 @@ const Business = () => {
       </div>
     </Layout>
   )
-}
+};
 
 export default Business;

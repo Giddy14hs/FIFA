@@ -13,13 +13,11 @@ const formSchema = new mongoose.Schema({
   userEmail: {
     type: String,
     required: true,
-    unique: true,
     match: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
   },
   phoneNumber: {
     type: String,
-    required: true,
-    match: /^\d{10}$/ // Assuming a 10-digit phone number
+    required: true
   }
 });
 

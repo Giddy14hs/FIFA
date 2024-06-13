@@ -6,7 +6,7 @@ import {
 
 export const getContacts = () => async(dispatch) =>{
     try {
-      const response = await api.fetchContacts();
+      const response = await api.createContact();
       const data = response ? response.data : null;
       if (data) {
         dispatch({ type: FETCH_ALL_CONTACTS, payload: data });
