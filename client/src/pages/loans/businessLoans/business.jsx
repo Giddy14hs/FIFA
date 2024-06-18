@@ -1,48 +1,23 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import "./business.css"
-import {Layout, Form, Input, Radio, Checkbox, Button, message } from "antd"
-import { getForms,createForms } from "../../../actions/forms.js"
+import {Layout} from "antd"
+import { getForms } from "../../../actions/forms.js"
 import { useDispatch } from 'react-redux'
-
+import BenevolentForm from '../../../components/form/formLoans.jsx'
 
 const Business = () => {
-  
-  const [form] = Form.useForm();
 
   const dispatch = useDispatch();
-
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     dispatch(getForms()); 
   }, [dispatch]
   );
 
-  const handleSubmit = async (formValues) =>{
-
-    const newForm = {
-      name: formValues.name,
-      radioInput: formValues.accountHolder,
-      userEmail: formValues.email,
-      phoneNumber: formValues.phone.replace(/\D/g, '')
-    }
-
-    setLoading(true);
-    try {
-      await dispatch(createForms(newForm));
-      form.resetFields();
-      message.success("Form submitted successfully!");
-    } catch (error) {
-      message.error(error.message);
-    } finally{
-      setLoading(false)
-    }
-  };
-
   return (
     <Layout>
       <div class="container">
-        <div className="business-container row">
+        <div className="business-container col">
               <div className="" id='business'>
                   <div class="col">
                   <img />
@@ -66,68 +41,7 @@ const Business = () => {
             <h4>Interested in this product??</h4>
             <b>Fill the form below</b>
               <div>
-              <Form form={form} onFinish={handleSubmit} className="form-control">
-                <Form.Item
-                  label="Name"
-                  name="name"
-                  rules={[{ required: true, message: 'Please enter your name!' }]}
-                >
-                  <Input placeholder="Enter Name" />
-                </Form.Item>
-                
-                <Form.Item
-                  label="Are you a Brighter-World Programme Account Holder"
-                  name="accountHolder"
-                  rules={[{ required: true, message: 'Please select an option!' }]}
-                  className="form-item-radio-group"
-                >
-                  <Radio.Group>
-                    <Radio value="yes">Yes</Radio>
-                    <Radio value="no">No</Radio>
-                  </Radio.Group>
-                </Form.Item>
-
-                <Form.Item
-                  label="E-mail"
-                  name="email"
-                  rules={[
-                    { required: true, message: 'Please enter your email!' },
-                    { type: 'email', message: 'Please enter a valid email!' }
-                  ]}
-                >
-                  <Input placeholder="Enter E-mail" />
-                </Form.Item>
-
-                <Form.Item
-                  label="Phone"
-                  name="phone"
-                  rules={[
-                    { required: true, message: 'Please enter your phone number!' },
-                    { pattern: /^\d{10}$/, message: 'Please enter a valid phone number!' } // Adjust regex to your needs
-                  ]}
-                >
-                  <Input placeholder="Enter Phone" />
-                </Form.Item>
-
-                <Form.Item
-                  name="terms"
-                  valuePropName="checked"
-                  rules={[{ validator: (_, value) => value ? Promise.resolve() : Promise.reject('Should accept terms') }]}
-                >
-                  <Checkbox>
-                    I Agree to the Terms of use
-                  </Checkbox>
-                </Form.Item>
-
-                <Form.Item>
-                  <Button type="primary" htmlType="submit" className="submit" loading={loading}>
-                    Submit
-                  </Button>
-                  <Button htmlType="button" className="cancel" onClick={() => form.resetFields()}>
-                    Cancel
-                  </Button>
-                </Form.Item>
-              </Form>
+                <BenevolentForm/>
               </div>
           </section>
         </div>

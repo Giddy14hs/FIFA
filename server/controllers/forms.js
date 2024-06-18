@@ -14,11 +14,11 @@ const createForms = async(req, res)=> {
   const {name, radioInput, userEmail, phoneNumber} = req.body;
 
   try {
-    // Check if a form with the same userEmail already exists
-    const existingForm = await Form.findOne({ userEmail });
-    if (existingForm) {
-      return res.status(409).json({ message: 'Form with this email already exists.' });
-    }
+    //Check if a form with the same userEmail already exists
+    //const existingForm = await Form.findOne({ userEmail });
+    //if (existingForm) {
+     //return res.status(409).json({ message: 'Form with this email already exists.' });
+    //}
 
     // If no duplicate, create and save the new form
     const newForm = new Form({
@@ -31,10 +31,10 @@ const createForms = async(req, res)=> {
     await newForm.save();
     res.status(201).json(newForm);
   } catch (error) {
-    if (error.code === 11000) {
-      res.status(409).json({ message: "Duplicate email entry" });
-    } else{
+    //if (error.code === 11000) {
+      //res.status(409).json({ message: "Duplicate email entry" });
+    //} else{
     res.status(409).json({message: error.message})}
-  }
+  //}
 }
 export{getForms, createForms};

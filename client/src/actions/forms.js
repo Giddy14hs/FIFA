@@ -18,16 +18,16 @@ export const getForms = () => async(dispatch) =>{
     }
   };
 
-export const createForms = (Form) => async (dispatch) => {
+export const createForms = (contact) => async (dispatch) => {
     try {
-        const { data } = await api.createForms(Form);
+        const { data } = await api.createForms(contact);
         dispatch({ type: CREATE_FORMS, payload: data });
     } catch (error) {
-      if (error.response && error.response.status === 409) {
-        console.error('Conflict error:', error.response.data.message);
-    }else {
+      //if (error.response && error.response.status === 409) {
+        //console.error('Conflict error:', error.response.data.message);
+    //}else {
         console.log("Error in createForms", error.message)
     
-    }
+    //}
   }
 };

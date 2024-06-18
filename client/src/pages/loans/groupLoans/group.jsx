@@ -1,23 +1,20 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import "./group.css"
-import { Layout , Form, Input, Radio, Checkbox, Button } from 'antd'
-import { createForms } from '../../../api'
+import { Layout  } from 'antd'
+import { getForms} from "../../../actions/forms.js"
 import { useDispatch } from 'react-redux'
+import BenevolentForm from '../../../components/form/formLoans'
 
 const Group = () => {
  
-  const [form] = Form.useForm();
-
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(getForms()); 
+  }, [dispatch]
+  );
 
-  const handleSubmit = (formValues) =>{
 
-    //formValues.preventDefault();
-
-    dispatch(createForms(formValues))
-    form.resetFields();
-  }
 
   return (
     <Layout>
@@ -47,64 +44,7 @@ const Group = () => {
           <h4>Interested in this product??</h4>
           <b>Fill the form below</b>
             <div>
-            <Form form={form} onFinish={handleSubmit} className="form-control">
-                <Form.Item
-                  label="Name"
-                  name="name"
-                  rules={[{ required: true, message: 'Please enter your name!' }]}
-                >
-                  <Input placeholder="Enter Name" />
-                </Form.Item>
-                
-                <Form.Item
-                  label="Are you a Brighter-World Programme Account Holder"
-                  name="accountHolder"
-                  rules={[{ required: true, message: 'Please select an option!' }]}
-                >
-                  <Radio.Group>
-                    <Radio value="yes">Yes</Radio>
-                    <Radio value="no">No</Radio>
-                  </Radio.Group>
-                </Form.Item>
-
-                <Form.Item
-                  label="E-mail"
-                  name="email"
-                  rules={[
-                    { required: true, message: 'Please enter your email!' },
-                    { type: 'email', message: 'Please enter a valid email!' }
-                  ]}
-                >
-                  <Input placeholder="Enter E-mail" />
-                </Form.Item>
-
-                <Form.Item
-                  label="Phone"
-                  name="phone"
-                  rules={[{ required: true, message: 'Please enter your phone number!' }]}
-                >
-                  <Input placeholder="Enter Phone" />
-                </Form.Item>
-
-                <Form.Item
-                  name="terms"
-                  valuePropName="checked"
-                  rules={[{ validator: (_, value) => value ? Promise.resolve() : Promise.reject('Should accept terms') }]}
-                >
-                  <Checkbox>
-                    I Agree to the Terms of use
-                  </Checkbox>
-                </Form.Item>
-
-                <Form.Item>
-                  <Button type="primary" htmlType="submit" className="submit">
-                    Submit
-                  </Button>
-                  <Button htmlType="button" className="cancel" onClick={() => form.resetFields()}>
-                    Cancel
-                  </Button>
-                </Form.Item>
-              </Form>
+              <BenevolentForm />
             </div>
         </section>
       </div>
