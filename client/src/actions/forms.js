@@ -18,9 +18,10 @@ export const getForms = () => async(dispatch) =>{
     }
   };
 
-export const createForms = (contact) => async (dispatch) => {
+//newForm in the api module
+export const createForms = (newForm) => async (dispatch) => {
     try {
-        const { data } = await api.createForms(contact);
+        const { data } = await api.createForms(newForm);
         dispatch({ type: CREATE_FORMS, payload: data });
     } catch (error) {
       //if (error.response && error.response.status === 409) {

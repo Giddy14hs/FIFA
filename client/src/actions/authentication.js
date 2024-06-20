@@ -8,9 +8,9 @@ const signup = (formValues, navigate) => async dispatch => {
       type: AUTHENTICATION,
       payload: data
     });
-    navigate("/")
+    navigate("/");
   } catch (error) {
-    console.log(error)
+    console.log("Signup failed:", error.response ? error.response.data :error.message)
   }
 }
 const login = (formValues, navigate) => async dispatch => {
@@ -20,9 +20,9 @@ const login = (formValues, navigate) => async dispatch => {
       type: AUTHENTICATION,
       payload: data
     });
-    navigate("/")
+    navigate("/");
   } catch (error) {
-    console.log(error)
+    console.log(error.message)
   }
 }
 

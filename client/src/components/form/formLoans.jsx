@@ -30,7 +30,7 @@ const BenevolentForm = () => {
       form.resetFields();
       message.success("Form submitted successfully!");
     } catch (error) {
-      message.error(error.message);
+      message.error('Failed to submit form. Please try again.',error.message);
     } finally {
       setLoading(false);
     }

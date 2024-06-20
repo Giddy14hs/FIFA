@@ -1,9 +1,10 @@
 import {Router} from "express"
 import { getForms, createForms} from "../controllers/forms.js";
+import authentication from "../middlewares/authentication.js";
 
 const router = Router();
 
-router.get("/", getForms)
+router.get("/", authentication, getForms)
 router.post("/", createForms);
 
 export default router;
