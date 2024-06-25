@@ -28,9 +28,7 @@ const AppRouter = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='login' element={<Login />} />
-          <Route path='about' element={<PrivateRouter />}>
-            <Route path='' element={<About />} />
-          </Route>
+          <Route path='about' element={<About />} />
           <Route path='products' element={<Products />} />
           <Route path='careers' element={<Careers />} />
           <Route path='businessloans' element={<Loans />} />

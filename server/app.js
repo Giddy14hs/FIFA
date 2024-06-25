@@ -15,7 +15,7 @@ app.use("/Contact", reviewRoutes)
 app.use("/user", userRoutes)
 app.use("/Products", formRoutes)
 
-const MONGO_URI = "mongodb+srv://Lemiso123:KGM3mF8eV59.k_H@cluster3.7trciu3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster3"
+const MONGO_URI ="mongodb+srv://Lemiso123:KGM3mF8eV59.k_H @cluster3.7trciu3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster3"
 
 const PORT = process.env.PORT || 5001;
 

@@ -2,7 +2,6 @@ import { Layout } from "antd";
 import "./About.css";
 import image7 from "../../images/image7.jpg"
 import image8 from "../../images/image8.jpg"
-import { Footer } from "antd/es/layout/layout";
 
 const About = () => {
   return (
@@ -72,16 +71,16 @@ const About = () => {
             </div>
           </div>
           </section>
-          <section>
+          <section id="mission">
             <div class="container-fluid mx-auto">
-                <div class="mission text-center">
+                <div  class="mission text-center">
                   <h1>Our Mission</h1>
                   <p>To   provide micro, small and medium entrepreneurs with the wherewithal to manage their financial resources efficiently through economic empowerment, capacity building and business Advisory services so as to improve the quality of their lives.</p>
                 </div>
             </div>
           </section>
 
-          <section>
+          <section id="vision">
             <div class="container-fluid text-center">
               <h1 class="vision text-center">Our Vision</h1>
               <p>To empower the entrepreneurs to take greater control of their business by increasing opportunities for making productive and informed economic investments.</p>

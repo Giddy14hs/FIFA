@@ -1,5 +1,6 @@
 import "./Navbar.css"
 import {Link} from "react-router-dom"
+import {HashLink} from "react-router-hash-link"
 import image17 from "../../images/image17.jpg"
 
 const Navbar = () => {
@@ -17,31 +18,37 @@ const Navbar = () => {
         <li class="nav-item dropdown">
           <Link class="nav-link dropdown-toggle active" aria-current="page" to="/">Home</Link>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#work">Our Work</a></li>
+            <li><a class="dropdown-item" href="#product">Why Choose Us</a></li>
           </ul>
         </li>
 
         <li class="nav-item dropdown">
-          <Link class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" to="/about">About</Link>
+          <Link class="nav-link dropdown-toggle active" aria-current="page"  data-bs-toggle="dropdown" to="/about">About</Link>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Mission</a></li>
-            <li><a class="dropdown-item" href="#">Vision</a></li>
+          <li><HashLink className="dropdown-item" to="/about#about">About Us</HashLink></li>
+          <li><HashLink className="dropdown-item" to="/about#mission">Mission</HashLink></li>
           </ul>
         </li>
 
         <li class="nav-item dropdown">
-          <Link class="nav-link dropdown-toggle" to="/products" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <Link class="nav-link dropdown-toggle active" to="/products" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">
             Products&Services
           </Link>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#mission">Missions</a></li>
-            <li><a class=" dropdown-item" href="#">Visions</a></li>
-          </ul>
+          <ul className="dropdown-menu" aria-labelledby="navbarDropdownProducts">
+                  <li><Link className="dropdown-item" to="/businessloans">Business Loans</Link></li>
+                  <li><Link className="dropdown-item" to="/msingiloans">Msingi Loans</Link></li>
+                  <li><Link className="dropdown-item" to="/salariedloans">Salaried Loans</Link></li>
+                  <li><Link className="dropdown-item" to="/grouploans">Group Loans</Link></li>
+                  <li><Link className="dropdown-item" to="/individualloans">Individual Loans</Link></li>
+                  <li><Link className="dropdown-item" to="/specialloans">Special Loans</Link></li>
+                  <li><Link className="dropdown-item" to="/savingsplan">Savings Plan</Link></li>
+                  <li><Link className="dropdown-item" to="/benevolentfund">Benevolent Fund</Link></li>
+                </ul>
         </li>
 
         <li class="nav-item dropdown">
-          <Link class="nav-link dropdown-toggle" to="/careers" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <Link class="nav-link dropdown-toggle active" to="/careers" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">
             Careers
           </Link>
               <ul class="dropdown-menu">
