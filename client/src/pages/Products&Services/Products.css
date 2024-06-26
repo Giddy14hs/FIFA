@@ -1,8 +1,14 @@
-.card{
+#product .col-md-3{
+  padding-left: 0;
+  padding-right: 0;
+
+}
+.imageContainer{
   position: relative;
   cursor: pointer;
+  text-align: center;
 }
-.card-body{
+.imgOverlay{
   position: absolute;
   top: 0;
   bottom: 0;
@@ -11,18 +17,20 @@
   height: 100%;
   background-color: rgb(240, 168, 26);
   opacity: 0;
+
 }
-.card:hover .card-body{
-  opacity: .8;
+.imageContainer:hover .imgOverlay{
+  opacity: 0.8;
 }
 .imgText{
   position: absolute;
   color: black;
 }
+
 #product{
   background-color: rgb(255, 220, 61);
 }
 .img-fluid{
-  width: 450px;
-  height: 450px;
+  width: 350px;
+  height: 350px;
 }

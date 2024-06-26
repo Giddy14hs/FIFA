@@ -17,9 +17,8 @@ const Business = () => {
   return (
     <Layout>
       <div class="container">
-        <div className="business-container col">
-              <div className="" id='business'>
-                  <div class="col">
+        <div className=" business-container ">
+              <div className="col-md-6" id='business'>
                   <img />
                   <h2 className="text-center">Business Loans</h2>
                   <ul>
@@ -34,16 +33,15 @@ const Business = () => {
                     </ul>
                   </ul>
                   </div>
-              </div>
-        </div>
-        <div class="p-2 col">
-          <section className='form-section'>
-            <h4>Interested in this product??</h4>
-            <b>Fill the form below</b>
-              <div>
-                <BenevolentForm/>
-              </div>
-          </section>
+              <div className="col-md-6">
+                <section className='form-section'>
+                  <h4>Interested in this product??</h4>
+                  <b>Fill the form below</b>
+                    <div>
+                      <BenevolentForm/>
+                    </div>
+                </section>
+                </div>
         </div>
       </div>
     </Layout>
