@@ -40,7 +40,7 @@ const Footer = () => {
               </div>
               <div className="col-md-6">
                 <div className="second content">
-                  <h1>Contact Us</h1>
+                  <h2>Contact Us</h2>
                   <Form form={form} onFinish={handleSubmit}>
                   <Form.Item
                     name="email"

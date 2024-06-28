@@ -56,21 +56,21 @@ const Home = () => {
 
         <div className="products">
           <section id="product" class="mt-5 pb-5">
-          <div class="container">
-            <div class="row">
-            <h2>Why Choose Us</h2>
-              <div class="col-md-4">
+          <div className="container">
+            <div className="row">
+            <h1 className="choose">Why Choose Us</h1>
+              <div class="col-md-4 pb-5">
                <div class="card text-center pt-3">
                 <div class="card-img">
                 <img src={image2} class="img-fluid my-3" style={{width:"200px;", height: "150px"}}  alt=""/>
                 </div>
-              <div class="card-body">
+              <div className="card-body">
                 <h3>Accessible Financing</h3>
                 <p> Our microloans are designed to be accessible to everyone, including those who may not qualify for traditional bank loans.</p>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div className="col-md-4 pb-5">
             <div class="card text-center pt-3">
               <div class="card-img">
                 <img src= {image4 }class="img-fluid my-3" style={{width:"200px;", height: "150px"}} alt=""/>
@@ -81,7 +81,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div className="col-md-4 pb-5">
             <div class="card text-center pt-3">
               <div class="card-img">
                 <img src={image5} class="img-fluid my-3" style={{width:"200px;" ,height: "150px"}} alt=""/>

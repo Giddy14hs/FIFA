@@ -3,9 +3,10 @@
   background-size: cover;
   height: 100vh;
 }*/
-h3{
-  font-size: 17px;
+h3, h1{
+  font-size: 30px;
   font-weight: bold;
+  text-align: center;
 }
 html{
   scroll-behavior: smooth;
@@ -38,4 +39,10 @@ display-4{
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
+}
+.choose{
+  margin-top: 100px;
+  margin-bottom: 100px;
+  text-decoration: underline;
+  padding-top: 30px;
 }

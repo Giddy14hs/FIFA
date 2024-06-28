@@ -26,7 +26,7 @@ const Navbar = () => {
         <li class="nav-item dropdown">
           <Link class="nav-link dropdown-toggle active" aria-current="page"  data-bs-toggle="dropdown" to="/about">About</Link>
           <ul class="dropdown-menu">
-          <li><HashLink className="dropdown-item" to="/about#about">About Us</HashLink></li>
+          <li><HashLink className="dropdown-item" to="/about#us">About Us</HashLink></li>
           <li><HashLink className="dropdown-item" to="/about#mission">Mission</HashLink></li>
           </ul>
         </li>

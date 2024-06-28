@@ -15,6 +15,7 @@ import Ioans from "../pages/loans/individualLoans/individual"
 import Ssoans from "../pages/loans/specialLoans/special"
 import Savings from "../pages/loans/savingsPlan/savings"
 import Benevolent from "../pages/loans/benevolentFund/benevolent"
+import SwiperCarousel from '../components/swiperCarousel/swiper'
 
 import Footer from "../components/footer/footer"
 import {Layout} from "antd"
@@ -39,6 +40,7 @@ const AppRouter = () => {
           <Route path='specialloans' element={<Ssoans />} />
           <Route path='savingsplan' element={<Savings />} />
           <Route path='benevolentfund' element={<Benevolent />} />
+          <Route path='swiper' element={<SwiperCarousel />} />
         </Routes>
         <Footer/>
       </Layout>
