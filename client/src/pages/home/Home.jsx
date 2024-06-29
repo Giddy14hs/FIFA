@@ -16,8 +16,8 @@ const Home = () => {
               <div class="container">
                 <div class="row text-center">
                   <div class="col">
-                    <h1 class="display-4">BRIGHTER WORLD</h1>
-                    <p class="text-muted">Brighter world is a company registered under companies Act in May 2016 as limited by guarantee. Its main aim is to build capacity of small entrepreneurs to realize their full potential through trainings and affordable credit hence financial inclusion. Financial inclusion is defined as the provision of “a full suite of quality financial services, provided at affordable prices, in a convenient manner, and with dignity for the clients”</p>
+                    <h1 class="display-4" className="animate__animated animate__flipInX animate__delay-2s">BRIGHTER WORLD</h1>
+                    <p class="text-muted" className="animate__animated animate__bounce animate__delay-1s">Brighter world is a company registered under companies Act in May 2016 as limited by guarantee. Its main aim is to build capacity of small entrepreneurs to realize their full potential through trainings and affordable credit hence financial inclusion. Financial inclusion is defined as the provision of “a full suite of quality financial services, provided at affordable prices, in a convenient manner, and with dignity for the clients”</p>
   
                   </div>
                 </div>
