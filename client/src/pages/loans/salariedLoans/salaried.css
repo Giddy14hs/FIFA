@@ -1,0 +1,69 @@
+.business-container {
+  display: block;
+  justify-content: space-between;
+}
+#business{
+text-align: center;
+display: block;
+}
+
+.business-content {
+  flex: 1;
+}
+
+.form-container {
+  flex: 1;
+}
+/*form css*/
+
+body {
+  font-family: Arial, sans-serif;
+}
+.form-container {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #333;
+  color: #ccc;
+}
+.form-item-radio-group {
+  margin-bottom: 16px; /* Adjust margin as needed */
+}
+
+
+
+.animate-hover {
+  display: inline-block;
+  text-align: center;
+  transition: all 0.5s, ease;
+}
+.animate__tada {
+  animation-name: tada;
+}
+.animate-hover:hover {
+  animation: tada 1s forwards; /* Apply the tada animation on hover */
+}
+
+@keyframes tada {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%, 20% {
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%, 50%, 70%, 90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%, 60%, 80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}

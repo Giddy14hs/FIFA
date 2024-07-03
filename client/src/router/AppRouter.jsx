@@ -15,7 +15,6 @@ import Ioans from "../pages/loans/individualLoans/individual"
 import Ssoans from "../pages/loans/specialLoans/special"
 import Savings from "../pages/loans/savingsPlan/savings"
 import Benevolent from "../pages/loans/benevolentFund/benevolent"
-import SwiperCarousel from '../components/swiperCarousel/swiper'
 
 import Footer from "../components/footer/footer"
 import {Layout} from "antd"
@@ -31,16 +30,15 @@ const AppRouter = () => {
           <Route path='login' element={<Login />} />
           <Route path='about' element={<About />} />
           <Route path='products' element={<Products />} />
-          <Route path='careers' element={<Careers />} />
-          <Route path='businessloans' element={<Loans />} />
-          <Route path='msingiloans' element={<Moans />} />
-          <Route path='salariedloans' element={<Soans />} />
-          <Route path='grouploans' element={<Goans />} />
-          <Route path='individualloans' element={<Ioans />} />
-          <Route path='specialloans' element={<Ssoans />} />
-          <Route path='savingsplan' element={<Savings />} />
-          <Route path='benevolentfund' element={<Benevolent />} />
-          <Route path='swiper' element={<SwiperCarousel />} />
+          <Route path='careers' element={<Careers />} /> 
+          <Route path='products/businessloans' element={<Loans />} />
+          <Route path='products/msingiloans' element={<Moans />} />
+          <Route path='products/salariedloans' element={<Soans />} />
+          <Route path='products/grouploans' element={<Goans />} />
+          <Route path='products/individualloans' element={<Ioans />} />
+          <Route path='products/specialloans' element={<Ssoans />} />
+          <Route path='products/savingsplan' element={<Savings />} />
+          <Route path='products/benevolentfund' element={<Benevolent />} />
         </Routes>
         <Footer/>
       </Layout>

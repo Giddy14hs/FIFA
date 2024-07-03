@@ -16,8 +16,8 @@ const Home = () => {
               <div class="container">
                 <div class="row text-center">
                   <div class="col">
-                    <h1 class="display-4" className="animate__animated animate__flipInX animate__delay-2s">BRIGHTER WORLD</h1>
-                    <p class="text-muted" className="animate__animated animate__bounce animate__delay-1s">Brighter world is a company registered under companies Act in May 2016 as limited by guarantee. Its main aim is to build capacity of small entrepreneurs to realize their full potential through trainings and affordable credit hence financial inclusion. Financial inclusion is defined as the provision of “a full suite of quality financial services, provided at affordable prices, in a convenient manner, and with dignity for the clients”</p>
+                    <h1 class="display-4" className="animate-hover animate__animated animate__flipInX animate__delay-2s">BRIGHTER WORLD</h1>
+                    <p class="text-muted" className="animate-hover animate__animated animate__bounce animate__delay-1s">Brighter world is a company registered under companies Act in May 2016 as limited by guarantee. Its main aim is to build capacity of small entrepreneurs to realize their full potential through trainings and affordable credit hence financial inclusion. Financial inclusion is defined as the provision of “a full suite of quality financial services, provided at affordable prices, in a convenient manner, and with dignity for the clients”</p>
   
                   </div>
                 </div>
@@ -30,8 +30,8 @@ const Home = () => {
             <div class="container">
               <div class="row">
                 <div class="col-md-12 text-center">
-                  <h1>Our Work</h1>
-                  <p class="text-muted">To build capacity of small entrepreneurs to realize their full potential through trainings and affordable credit</p>
+                  <h1 className="animate-hover animate__animated animate__rotateIn animate__delay-2s">Our Work</h1>
+                  <p class="text-muted" className="animate-hover animate__animated animate__flip animate__delay-3s">To build capacity of small entrepreneurs to realize their full potential through trainings and affordable credit</p>
                 </div>
                 <div class="col-md-6 text-center mx-auto">
                     <a href="#" class="video" data-image="images/image1.jpg"
@@ -58,15 +58,15 @@ const Home = () => {
           <section id="product" class="mt-5 pb-5">
           <div className="container">
             <div className="row">
-            <h1 className="choose">Why Choose Us</h1>
+            <h1 class="choose" className="animate-hover animate__animated animate__wobble animate__delay-1s">Why Choose Us</h1>
               <div class="col-md-4 pb-5">
                <div class="card text-center pt-3">
                 <div class="card-img">
                 <img src={image2} class="img-fluid my-3" style={{width:"200px;", height: "150px"}}  alt=""/>
                 </div>
               <div className="card-body">
-                <h3>Accessible Financing</h3>
-                <p> Our microloans are designed to be accessible to everyone, including those who may not qualify for traditional bank loans.</p>
+                <h3 className="animate-hover animate__animated animate__bounceInLeft animate__delay-3s">Accessible Financing</h3>
+                <p className="animate__animated animate__bounceInRight animate__delay-4s"> Our microloans are designed to be accessible to everyone, including those who may not qualify for traditional bank loans.</p>
               </div>
             </div>
           </div>
@@ -76,8 +76,8 @@ const Home = () => {
                 <img src= {image4 }class="img-fluid my-3" style={{width:"200px;", height: "150px"}} alt=""/>
               </div>
               <div class="card-body">
-                <h3>Personalized Service</h3>
-                <p>We work closely with our clients to understand their needs and provide customized financial solutions.</p>
+                <h3 className="animate-hover animate__animated animate__bounceInLeft animate__delay-3s">Personalized Service</h3>
+                <p className="animate__animated animate__bounceInRight animate__delay-4s">We work closely with our clients to understand their needs and provide customized financial solutions.</p>
               </div>
             </div>
           </div>
@@ -87,8 +87,8 @@ const Home = () => {
                 <img src={image5} class="img-fluid my-3" style={{width:"200px;" ,height: "150px"}} alt=""/>
               </div>
               <div class="card-body">
-                <h3>Community Focused</h3>
-                <p>We are committed to supporting and uplifting the communities we serve.</p>
+                <h3 className="animate-hover animate__animated animate__bounceInLeft animate__delay-3s">Community Focused</h3>
+                <p className="animate__animated animate__bounceInRight animate__delay-4s">We are committed to supporting and uplifting the communities we serve.</p>
               </div>
              </div>
           </div>

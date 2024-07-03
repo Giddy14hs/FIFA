@@ -32,29 +32,25 @@ const Navbar = () => {
         </li>
 
         <li class="nav-item dropdown">
-          <Link class="nav-link dropdown-toggle active" to="/products" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">
+          <Link class="nav-link dropdown-toggle active" to="/products" aria-expanded="false" aria-current="page">
             Products&Services
           </Link>
           <ul className="dropdown-menu" aria-labelledby="navbarDropdownProducts">
-                  <li><Link className="dropdown-item" to="/businessloans">Business Loans</Link></li>
+                  <li><Link className="dropdown-item" to="products/businessloans">Business Loans</Link></li>
                   <li><Link className="dropdown-item" to="/msingiloans">Msingi Loans</Link></li>
-                  <li><Link className="dropdown-item" to="/salariedloans">Salaried Loans</Link></li>
-                  <li><Link className="dropdown-item" to="/grouploans">Group Loans</Link></li>
-                  <li><Link className="dropdown-item" to="/individualloans">Individual Loans</Link></li>
-                  <li><Link className="dropdown-item" to="/specialloans">Special Loans</Link></li>
-                  <li><Link className="dropdown-item" to="/savingsplan">Savings Plan</Link></li>
-                  <li><Link className="dropdown-item" to="/benevolentfund">Benevolent Fund</Link></li>
+                  <li><Link className="dropdown-item" to="products/salariedloans">Salaried Loans</Link></li>
+                  <li><Link className="dropdown-item" to="products/grouploans">Group Loans</Link></li>
+                  <li><Link className="dropdown-item" to="products/individualloans">Individual Loans</Link></li>
+                  <li><Link className="dropdown-item" to="products/specialloans">Special Loans</Link></li>
+                  <li><Link className="dropdown-item" to="products/savingsplan">Savings Plan</Link></li>
+                  <li><Link className="dropdown-item" to="products/benevolentfund">Benevolent Fund</Link></li>
                 </ul>
         </li>
 
         <li class="nav-item dropdown">
-          <Link class="nav-link dropdown-toggle active" to="/careers" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">
+          <Link class="nav-link dropdown-toggle active" to="/careers" role="button" aria-expanded="false" aria-current="page">
             Careers
           </Link>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-              </ul>
             </li>
           </ul>
               <form class="d-flex" role="search">
