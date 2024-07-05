@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import "./business.css"
 import {Layout} from "antd"
-//import { getForms } from "../../../actions/forms.js"
+import { getForms } from "../../../actions/forms.js"
 import { useDispatch } from 'react-redux'
 import BenevolentForm from '../../../components/form/formLoans.jsx'
 
@@ -10,7 +10,7 @@ const Business = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-   // dispatch(getForms()); 
+    dispatch(getForms()); 
   }, [dispatch]
   );
 

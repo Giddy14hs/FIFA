@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "./formLoans.css";
 import { Form, Input, Radio, Checkbox, Button, message } from 'antd';
 import { useDispatch } from 'react-redux';
-//import { createForms, getForms } from "../../actions/forms.js";
+import { createForms, getForms } from "../../actions/forms.js";
 
 const BenevolentForm = () => {
 
@@ -12,9 +12,9 @@ const BenevolentForm = () => {
   
   const [loading, setLoading] = useState(false);
 
- // useEffect(() => {
-   // dispatch(getForms());
- // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getForms());
+  }, [dispatch]);
 
   const handleSubmit = async (formValues) => {
     const newForm = {
@@ -26,7 +26,7 @@ const BenevolentForm = () => {
 
     setLoading(true);
     try {
-      //await dispatch(createForms(newForm));
+      await dispatch(createForms(newForm));
       form.resetFields();
       message.success("Form submitted successfully!");
     } catch (error) {

@@ -58,7 +58,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className='about'>
+    <div className='about' id="media">
       <Layout>
       <section id="us" class="py-5">
             <div class="container">

@@ -21,6 +21,12 @@ export const fetchContacts = async() => {
 export const createContact = async (newContact)=> {
   return api.post("/contact", newContact)};
 
+export const fetchForms = async() => {
+  return api.post("/products")
+}
+export const createForms = async(newForm) => {
+  return api.post("/products", newForm)
+};
 
 export const login = async(formValues) => {
   return api.post("/user/login", formValues)};

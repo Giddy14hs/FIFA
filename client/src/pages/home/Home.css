@@ -26,6 +26,7 @@ display-4{
 }
 .btn-outline-secondary{
   cursor: pointer;
+  box-shadow: 1px 3px 3px 1px;
 }
 .btn-btn-outline-secondary:hover{
   background-color:  #990099;

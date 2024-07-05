@@ -6,4 +6,27 @@
 }
 .card {
   width: 400px;
+  margin: auto; /* Centers the card horizontally */
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.loginPage{
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Ensure it covers the entire viewport height */
+    background-color: #f0f0f0; /* Example background color */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    
+    background: url(../../images/image1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
 }

@@ -5,6 +5,12 @@ import cors from "cors";
 import reviewRoutes from "./routes/contact.js"
 import userRoutes from "./routes/users.js";
 import formRoutes from "./routes/forms.js"
+import dotenv from "dotenv"
+
+dotenv.config();  // This loads variables from .env file into process.env
+
+console.log('MONGO_URI:', process.env.MONGO_URI);
+console.log('PORT:', process.env.PORT);
 
 const app = express();
 
@@ -15,13 +21,14 @@ app.use("/Contact", reviewRoutes)
 app.use("/user", userRoutes)
 app.use("/Products", formRoutes)
 
-const MONGO_URI ="mongodb+srv://Lemiso123:KGM3mF8eV59.k_H @cluster3.7trciu3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster3"
+const MONGO_URI = process.env.MONGO_URI  || "mongodb+srv://Lemiso123:lcBk3AA17H7qgxqU@cluster3.652ausi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster3"
 
 const PORT = process.env.PORT || 5001;
 
 const connectDB = async ()=> {
   try {
     await mongoose.connect(MONGO_URI)
+    console.log('Connected to MongDB')
     app.listen(PORT, ()=> console.log(`Server running on port: ${PORT}`))
   } catch (err) {
     console.log("Connection to MongoDB failed", err.message);

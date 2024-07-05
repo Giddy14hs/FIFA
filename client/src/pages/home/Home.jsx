@@ -9,7 +9,7 @@ import image5 from "../../images/image5.jpg";
 
 const Home = () => {
   return (
-    <div>
+    <div id="media">
         <div className="navbarHeader">
           <header id="header">
             <div class="overlay">

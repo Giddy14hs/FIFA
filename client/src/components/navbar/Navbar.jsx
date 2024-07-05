@@ -8,7 +8,7 @@ const Navbar = () => {
     <div>
     <nav class="navbar navbar-expand-lg bg-warning ">
       <div class="container-fluid">
-        <img src={image17} alt="" style={{width: "100px", height: "100px"}}/>
+        <iframe src={image17} title="Logo" type="PDF" style={{width: "50px", height: "50px"}} scrolling="auto"/>
       <a class="navbar-brand" href="#"><b>BRIGHTER-WORLD PROGRAMME</b></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -53,10 +53,6 @@ const Navbar = () => {
           </Link>
             </li>
           </ul>
-              <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
           </div>
         </div>
       </nav>

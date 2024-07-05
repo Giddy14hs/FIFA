@@ -18,7 +18,7 @@ const AuthForm = () => {
   const [error, setError] = useState('');
 
   const onSubmit = (formValues) => {
-    formValues.preventDefault();
+    //formValues.preventDefault();
     const values = form.getFieldsValue();
 
     if (!isLogin && values.password !== values.confirmPassword) {
@@ -42,7 +42,7 @@ const AuthForm = () => {
   };
 
   return (
-    <div>
+    <div className="loginPage">
       <Layout style={styles.container}>
         <Card
           className="card"
