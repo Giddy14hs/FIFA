@@ -1,9 +1,18 @@
 import "./Navbar.css"
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import {HashLink} from "react-router-hash-link"
+import { useDispatch } from "react-redux"
 import image17 from "../../images/image17.jpg"
+import {logout} from "../../actions/authentication.js"
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate('/login');
+  };
   return (
     <div>
     <nav class="navbar navbar-expand-lg bg-warning ">
@@ -51,6 +60,9 @@ const Navbar = () => {
           <Link class="nav-link dropdown-toggle active" to="/careers" role="button" aria-expanded="false" aria-current="page">
             Careers
           </Link>
+            </li>
+            <li className="nav-item">
+                <button className="nav-link btn btn-link" onClick={handleLogout}>Logout</button>
             </li>
           </ul>
           </div>

@@ -1,5 +1,5 @@
 import * as api from "../api"
-import { AUTHENTICATION } from "../constants/actionTypes";
+import { AUTHENTICATION, LOGOUT } from "../constants/actionTypes";
 
 const signup = (formValues, navigate) => async dispatch => {
   try {
@@ -11,6 +11,7 @@ const signup = (formValues, navigate) => async dispatch => {
     navigate("/");
   } catch (error) {
     console.log("Signup failed:", error.response ? error.response.data :error.message)
+    throw error;
   }
 }
 const login = (formValues, navigate) => async dispatch => {
@@ -22,8 +23,12 @@ const login = (formValues, navigate) => async dispatch => {
     });
     navigate("/");
   } catch (error) {
-    console.log(error.message)
+    console.log(error.response.data.message)
+    throw error;
   }
 }
+const logout = () => (dispatch) => {
+  dispatch({ type: LOGOUT})
+};
 
-export {login, signup};
+export {login, signup, logout};

@@ -18,7 +18,7 @@ const AuthForm = () => {
   const [error, setError] = useState('');
 
   const onSubmit = (formValues) => {
-    //formValues.preventDefault();
+    //e.preventDefault();
     const values = form.getFieldsValue();
 
     if (!isLogin && values.password !== values.confirmPassword) {
@@ -26,10 +26,15 @@ const AuthForm = () => {
       return;
     }
 
-    if (isLogin) {
-      dispatch(login(values, navigate));
-    } else {
-      dispatch(signup(values, navigate));
+    try {
+      if (isLogin) {
+         dispatch(login(values, navigate));
+      } else {
+         dispatch(signup(values, navigate));
+      }
+      setError('');
+    } catch (error) {
+      setError(error.response.data.message);
     }
 
     form.resetFields();

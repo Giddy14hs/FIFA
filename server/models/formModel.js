@@ -18,7 +18,11 @@ const formSchema = new mongoose.Schema({
   phoneNumber: {
     type: String,
     required: true
-  }
+  },
+  loanCategory: { 
+    type: String, 
+    required: true 
+  },
 });
 
 export default mongoose.model("Products", formSchema);

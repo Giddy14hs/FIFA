@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken"
 import bcrypt from "bcryptjs";
-
 import User from "../models/user.js"
+import nodemailer from "nodemailer"
 
 const login = async(req, res) => {
   const {email, password} = req.body
@@ -44,6 +44,28 @@ const signup = async(req, res) => {
     const result = await User.create({username, email, password: encryptedPassword})
 
     const token = jwt.sign({email: result.email, id: result._id}, "1234", {expiresIn: "1h"});
+
+    // Configure nodemailer
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: 'Welcome to Brighter-World Programme',
+      text: `Hi ${username},\n\nThank you for registering at Brighter-World Programme!\n\nBest regards,\nThe Team`,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error('Error sending email:', error);
+      }
+    });
 
     res.status(201).json({result, token});
 

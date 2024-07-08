@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import "./formLoans.css";
-import { Form, Input, Radio, Checkbox, Button, message } from 'antd';
+import { Form, Input, Radio, Checkbox, Button, message, Select } from 'antd';
 import { useDispatch } from 'react-redux';
 import { createForms, getForms } from "../../actions/forms.js";
+
+
+const {Option} = Select;
 
 const BenevolentForm = () => {
 
@@ -22,6 +25,7 @@ const BenevolentForm = () => {
       radioInput: formValues.accountHolder,
       userEmail: formValues.email,
       phoneNumber: formValues.phone.replace(/\D/g, ''),
+      loanCategory: formValues.loanCategory, // Include loanCategory in newForm
     };
 
     setLoading(true);
@@ -78,6 +82,23 @@ const BenevolentForm = () => {
         ]}
       >
         <Input placeholder="Enter Phone" />
+      </Form.Item>
+      <Form.Item
+        label="Loan Category"
+        name="loanCategory"
+        rules={[{ required: true, message: 'Please select a loan category!' }]}
+      >
+        <Select placeholder="Select a loan category">
+          <Option value="business">Business Loans</Option>
+          <Option value="msingi">Msingi Loans</Option>
+          <Option value="salaried">Salaried Loans</Option>
+          <Option value="group">Group Loans</Option>
+          <Option value="individual">Individual Loans</Option>
+          <Option value="special">Special Loans</Option>
+          <Option value="savings">Savigs Plan</Option>
+          <Option value="benevolent">Benevolent Fund</Option>
+          {/* Add more options as needed */}
+        </Select>
       </Form.Item>
 
       <Form.Item

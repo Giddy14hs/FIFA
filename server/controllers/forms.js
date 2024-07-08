@@ -1,5 +1,6 @@
 import mongoose from "mongoose"
 import Form from "../models/formModel.js"
+import nodemailer from "nodemailer"
 
 const getForms = async(req, res)=>{
   
@@ -11,7 +12,7 @@ const getForms = async(req, res)=>{
   }
 }
 const createForms = async(req, res)=> {
-  const {name, radioInput, userEmail, phoneNumber} = req.body;
+  const {name, radioInput, userEmail, phoneNumber, loanCategory} = req.body;
 
   try {
     //Check if a form with the same userEmail already exists
@@ -25,10 +26,36 @@ const createForms = async(req, res)=> {
       name,
       radioInput,
       userEmail,
-      phoneNumber
-    });
+      phoneNumber,
+      loanCategory
+    }); 
 
     await newForm.save();
+
+     // Configure nodemailer
+     const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: 'admin-email@example.com', // Admin email
+      subject: 'New Form Submission',
+      text: `Name: ${name}\nEmail: ${userEmail}\nPhone: ${phoneNumber}\nLoan Category: ${loanCategory}\nRadio Input: ${radioInput}`,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error('Error sending email:', error);
+        return res.status(500).json({ message: 'Error sending email' });
+      }
+      res.status(201).json(newForm);
+    });
+    
     res.status(201).json(newForm);
   } catch (error) {
     //if (error.code === 11000) {
