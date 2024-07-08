@@ -55,8 +55,6 @@ const createForms = async(req, res)=> {
       }
       res.status(201).json(newForm);
     });
-    
-    res.status(201).json(newForm);
   } catch (error) {
     //if (error.code === 11000) {
       //res.status(409).json({ message: "Duplicate email entry" });
