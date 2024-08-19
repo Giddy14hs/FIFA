@@ -5,6 +5,6 @@ import authentication from "../middlewares/authentication.js";
 const router = Router();
 
 router.get("/", authentication, getForms)
-router.post("/", createForms);
+router.post("/", authentication, createForms);
 
 export default router;

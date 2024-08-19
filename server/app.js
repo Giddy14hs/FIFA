@@ -21,21 +21,19 @@ app.use("/Contact", reviewRoutes)
 app.use("/user", userRoutes)
 app.use("/Products", formRoutes)
 
-const MONGO_URI = process.env.MONGO_URI  || "mongodb+srv://Lemiso123:lcBk3AA17H7qgxqU@cluster3.652ausi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster3"
+const MONGO_URI = process.env.MONGO_URI
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT
 
-const connectDB = async ()=> {
+const connectDB = async() => {
   try {
     await mongoose.connect(MONGO_URI)
-    console.log('Connected to MongDB')
-    app.listen(PORT, ()=> console.log(`Server running on port: ${PORT}`))
-  } catch (err) {
-    console.log("Connection to MongoDB failed", err.message);
+    app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
+  } catch (error) {
+    console.error("Connection to MongoDB failed", error.message)
   }
 }
-
 connectDB();
 
-mongoose.connection.on("open", ()=> console.log("Connection to database has been established successfully"));
-mongoose.connection.on("error", (err)=> console.log(err));
+mongoose.connection.on("open", () => console.log("Connection to database has been established successfully"))
+mongoose.connection.on("error", (error) => console.log(error));
