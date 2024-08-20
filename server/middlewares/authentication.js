@@ -1,36 +1,36 @@
-import jwt from "jsonwebtoken"
+import jwt from "jsonwebtoken";
 
 const authentication = async (req, res, next) => {
   try {
-
     const authHeader = req.headers.authorization;
 
-    if (authHeader && authHeader.startsWith("Bearer ")){
-    
+    if (authHeader && authHeader.startsWith("Bearer ")) {
       const token = authHeader.split(" ")[1];
 
-    if(token){
-      //verify the token(use the same password secret)
-      let decodedData = jwt.verify(token, "1234")
+      if (token) {
+        console.log("Token:", token); // Log the token to see what is being passed
 
-      //to get user id from the decoded token
-      req.userId = decodedData?.id;
-    }
-    }
-    next();
+        // Verify the token (using the secret key)
+        let decodedData = jwt.verify(token, process.env.JWT_SECRET);
 
-  } catch (error) {
-    // Handle TokenExpiredError separately
-    if (error.name === "TokenExpiredError") {
-      // Handle expired token error
-      console.log("Token has expired");
-      // Optionally, you can send a response indicating that the token has expired
-      // res.status(401).json({ message: "Token has expired" });
+        // Get user ID from the decoded token
+        req.userId = decodedData?.id;
+      }
     } else {
-      // Handle other errors
-      console.log(error);
+      return res.status(401).json({ message: "Authentication failed. No token provided." });
+    }
+
+    next();
+  } catch (error) {
+    if (error.name === "TokenExpiredError") {
+      console.log("Token has expired");
+      return res.status(401).json({ message: "Token has expired" });
+    } else {
+      console.log("Authentication error:", error);
+      return res.status(403).json({ message: "Authentication failed. Invalid token." });
     }
   }
-}
+};
 
 export default authentication;
+

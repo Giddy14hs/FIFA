@@ -18,7 +18,7 @@ const login = async(req, res) => {
       return res.status(400).json({message: "Invalid password"})
     }
     //information we want to store in token
-    const token = jwt.sign({email: oldUser.email, id: oldUser._id}, "1234", {expiresIn: "1h"});
+    const token = jwt.sign({email: oldUser.email, id: oldUser._id}, process.env.JWT_SECRET, {expiresIn: "1h"});
 
     res.status(200).json({result: oldUser, token})
   }catch(error){
@@ -43,7 +43,7 @@ const signup = async(req, res) => {
 
     const result = await User.create({username, email, password: encryptedPassword})
 
-    const token = jwt.sign({email: result.email, id: result._id}, "1234", {expiresIn: "1h"});
+    const token = jwt.sign({email: result.email, id: result._id},process.env.JWT_SECRET, {expiresIn: "1h"});
 
     // Configure nodemailer
     const transporter = nodemailer.createTransport({

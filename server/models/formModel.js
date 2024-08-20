@@ -15,6 +15,9 @@ const formSchema = new mongoose.Schema({
     required: true,
     match: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
   },
+  userId:{
+    type: String,
+  },
   phoneNumber: {
     type: String,
     required: true

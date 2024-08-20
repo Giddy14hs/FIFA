@@ -16,6 +16,8 @@ import Ssoans from "../pages/loans/specialLoans/special"
 import Savings from "../pages/loans/savingsPlan/savings"
 import Benevolent from "../pages/loans/benevolentFund/benevolent"
 import Footer from "../components/footer/footer"
+import History from "../pages/history/History"
+import Branches from "../pages/branches/branches"
 import {Layout} from "antd"
 
 const LayoutWithConditionalNavFooter = ({ children }) => {
@@ -52,6 +54,8 @@ const AppRouter = () => {
           <Route path="/products/specialloans" element={<Ssoans />} />
           <Route path="/products/savingsplan" element={<Savings />} />
           <Route path="/products/benevolentfund" element={<Benevolent />} />
+          <Route path="/branches" element={<Branches />} />
+          <Route path="/history" element={<History/>} />
         </Routes>
       </LayoutWithConditionalNavFooter>
     </BrowserRouter>

@@ -36,7 +36,8 @@ const Navbar = () => {
           <Link class="nav-link dropdown-toggle active" aria-current="page"  data-bs-toggle="dropdown" to="/about">About</Link>
           <ul class="dropdown-menu">
           <li><HashLink className="dropdown-item" to="/about#us">About Us</HashLink></li>
-          <li><HashLink className="dropdown-item" to="/about#mission">Mission</HashLink></li>
+          <li><Link className="dropdown-item" to="/history">Our History</Link></li>
+          <li><Link className="dropdown-item" to="/branches">Our Branches</Link></li>
           </ul>
         </li>
 
