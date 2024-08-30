@@ -18,6 +18,7 @@ import Benevolent from "../pages/loans/benevolentFund/benevolent"
 import Footer from "../components/footer/footer"
 import History from "../pages/history/History"
 import Branches from "../pages/branches/branches"
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import {Layout} from "antd"
 
 const LayoutWithConditionalNavFooter = ({ children }) => {
@@ -37,6 +38,7 @@ const LayoutWithConditionalNavFooter = ({ children }) => {
 
 const AppRouter = () => {
   return (
+    <GoogleOAuthProvider>
     <div>
      <BrowserRouter>
       <LayoutWithConditionalNavFooter>
@@ -60,6 +62,7 @@ const AppRouter = () => {
       </LayoutWithConditionalNavFooter>
     </BrowserRouter>
   </div>
+  </GoogleOAuthProvider>
   )
 }
 

@@ -73,5 +73,43 @@ const signup = async(req, res) => {
     res.status(500).json({message: "Something went wrong"})
   }
 };
+import passport from 'passport';
+import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
+import User from '../models/user.js'; // Import your user model
+
+passport.use(new GoogleStrategy({
+  clientID: process.env.GOOGLE_CLIENT_ID, // Google Client ID from .env
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET, // Google Client Secret from .env
+  callbackURL: '/auth/google/callback' // Callback URL that Google will redirect to
+},
+async (accessToken, refreshToken, profile, done) => {
+  // Check if user already exists in your database
+  const existingUser = await User.findOne({ googleId: profile.id });
+  
+  if (existingUser) {
+    return done(null, existingUser);
+  }
+  
+  // If user doesn't exist, create a new user in the database
+  const newUser = new User({
+    googleId: profile.id,
+    email: profile.emails[0].value,
+    name: profile.displayName,
+  });
+
+  await newUser.save();
+  done(null, newUser);
+}));
+
+passport.serializeUser((user, done) => {
+  done(null, user.id); // Serialize user by ID
+});
+
+passport.deserializeUser((id, done) => {
+  User.findById(id, (err, user) => {
+    done(err, user); // Deserialize user by finding user ID
+  });
+});
+
 
 export {login, signup};

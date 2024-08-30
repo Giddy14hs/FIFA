@@ -1,135 +1,84 @@
-import styles from "./styles.css"
-import {useNavigate} from "react-router-dom"
-import {useDispatch} from "react-redux"
-import { Form, Input, Button, Card, Layout, Typography} from "antd"
-import {UserOutlined, LockOutlined, MailOutlined} from "@ant-design/icons"
-import { useState } from "react";
-import {login, signup} from "../../actions/authentication";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { GoogleLogin } from '@react-oauth/google';
+import { login, signup } from '../../actions/authentication';
+import { Form, Input, Button, Card, Layout, Typography } from 'antd';
+import { UserOutlined, LockOutlined, MailOutlined } from '@ant-design/icons';
 
-const {Title} = Typography;
-
+const { Title } = Typography;
 
 const AuthForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  const [form] = Form.useForm();
   const [isLogin, setIsLogin] = useState(true);
   const [error, setError] = useState('');
 
   const onSubmit = (formValues) => {
-    //e.preventDefault();
-    const values = form.getFieldsValue();
-
-    if (!isLogin && values.password !== values.confirmPassword) {
+    if (!isLogin && formValues.password !== formValues.confirmPassword) {
       setError('Passwords do not match');
       return;
     }
 
-    try {
-      if (isLogin) {
-         dispatch(login(values, navigate));
-      } else {
-         dispatch(signup(values, navigate));
-      }
-      setError('');
-    } catch (error) {
-      setError(error.response.data.message);
+    if (isLogin) {
+      dispatch(login(formValues, navigate));
+    } else {
+      dispatch(signup(formValues, navigate));
     }
+  };
 
-    form.resetFields();
-    setError('');
+  const handleGoogleLoginSuccess = (response) => {
+    const token = response.credential;
+    dispatch(login({ token }, navigate)); // Dispatch Google token to your login action
+  };
+
+  const handleGoogleLoginFailure = (error) => {
+    setError('Google login failed. Please try again.');
+    console.error('Google Login Error:', error);
   };
 
   const switchMode = () => {
-    setIsLogin((prevIsLogin) => !prevIsLogin);
+    setIsLogin(!isLogin);
     setError('');
   };
 
   return (
-    <div className="loginPage">
-      <Layout style={styles.container}>
-        <Card
-          className="card"
-          title={
-            <Title level={4} style={{ textAlign: "center" }}>
-              {isLogin ? "Login to" : "Join"}&nbsp; Brighter-World Programme
-            </Title>
-          }
-        >
-          <Form
-            name="authform"
-            form={form}
-            size="large"
-            wrapperCol={{ span: 20, offset: 2 }}
-            onFinish={onSubmit}
-          >
-            {isLogin || (
-              <>
-                <Form.Item
-                  name="username"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Please enter your username",
-                    },
-                  ]}
-                >
-                  <Input prefix={<UserOutlined />} placeholder="Username" />
-                </Form.Item>
-              </>
-            )}
-            <Form.Item
-              name="email"
-              rules={[
-                {
-                  required: true,
-                  message: "Please enter a valid email address",
-                },
-              ]}
-            >
-              <Input type="email" prefix={<MailOutlined />} placeholder="Email address" />
+    <Layout style={{ padding: '2rem' }}>
+      <Card title={<Title level={4}>{isLogin ? 'Login' : 'Sign Up'}</Title>} style={{ maxWidth: '400px', margin: 'auto' }}>
+        <GoogleLogin
+          onSuccess={handleGoogleLoginSuccess}
+          onError={handleGoogleLoginFailure}
+        />
+        <Form onFinish={onSubmit} layout="vertical">
+          {!isLogin && (
+            <Form.Item name="username" rules={[{ required: true, message: 'Please enter your username' }]}>
+              <Input prefix={<UserOutlined />} placeholder="Username" />
             </Form.Item>
-            <Form.Item
-              name="password"
-              rules={[
-                {
-                  required: true,
-                  message: "Please enter your password",
-                },
-              ]}
-            >
-              <Input.Password type="password" prefix={<LockOutlined />} placeholder="Password" />
+          )}
+          <Form.Item name="email" rules={[{ required: true, message: 'Please enter a valid email address' }]}>
+            <Input prefix={<MailOutlined />} placeholder="Email" />
+          </Form.Item>
+          <Form.Item name="password" rules={[{ required: true, message: 'Please enter your password' }]}>
+            <Input.Password prefix={<LockOutlined />} placeholder="Password" />
+          </Form.Item>
+          {!isLogin && (
+            <Form.Item name="confirmPassword" rules={[{ required: true, message: 'Please confirm your password' }]}>
+              <Input.Password prefix={<LockOutlined />} placeholder="Confirm Password" />
             </Form.Item>
-            {isLogin || (
-              <Form.Item
-                name="confirmPassword"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please repeat your password",
-                  },
-                ]}
-              >
-                <Input.Password type="password" prefix={<LockOutlined />} placeholder="Confirm Password" />
-              </Form.Item>
-            )}
-            {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
-            <Form.Item>
-              <Button htmlType="submit" type="primary">
-                {isLogin ? "Log In" : "Join"}
-              </Button>
-              <span style={{ margin: "0 10px 0px 20px" }}>&nbsp; Or</span>
-              <Button type="link" onClick={switchMode}>
-                {isLogin ? "Register Now" : "Have an account"}
-              </Button>
-            </Form.Item>
-          </Form>
-        </Card>
-      </Layout>
-    </div>
+          )}
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+          <Form.Item>
+            <Button type="primary" htmlType="submit">
+              {isLogin ? 'Login' : 'Sign Up'}
+            </Button>
+            <Button type="link" onClick={switchMode}>
+              {isLogin ? 'Switch to Sign Up' : 'Switch to Login'}
+            </Button>
+          </Form.Item>
+        </Form>
+      </Card>
+    </Layout>
   );
 };
-
 
 export default AuthForm;
