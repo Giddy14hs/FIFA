@@ -1,7 +1,7 @@
 import "./Navbar.css"
 import {Link, useNavigate} from "react-router-dom"
 import {HashLink} from "react-router-hash-link"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import image17 from "../../images/image17.jpg"
 import {logout} from "../../actions/authentication.js"
 
@@ -9,16 +9,22 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+
+  const user = useSelector((state) => state.authentication.authData) || JSON.parse(localStorage.getItem('profile'));;
+
+  console.log(user);
+  
   const handleLogout = () => {
     dispatch(logout());
-    navigate('/');
+    localStorage.removeItem("profile"); // Clear localStorage
+    navigate('/login');
   };
   return (
     <div>
     <nav class="navbar navbar-expand-lg bg-warning ">
       <div class="container-fluid">
         <iframe src={image17} title="Logo" type="PDF" style={{width: "50px", height: "50px"}} scrolling="auto"/>
-      <a class="navbar-brand" href="#"><b>BRIGHTER-WORLD PROGRAMME</b></a>
+      <a class="navbar-brand" href="#"><b></b></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
@@ -63,7 +69,19 @@ const Navbar = () => {
           </Link>
             </li>
             <li className="nav-item">
-                <button className="nav-link btn btn-link" onClick={handleLogout}>Logout</button>
+            {user ? (
+              <li className="nav-item">
+                <button className="nav-link" onClick={handleLogout}>
+                  Logout
+                </button>
+              </li>
+            ) : (
+              <li className="nav-item">
+                <Link className="nav-link" to="/login">
+                  Login
+                </Link>
+              </li>
+            )}
             </li>
           </ul>
           </div>

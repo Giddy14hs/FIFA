@@ -1,8 +1,12 @@
 //import { Layout } from "antd"
 import "./Home.css";
-import image2 from "../../images/image2.jpg";
-import image4 from "../../images/image4.jpg";
-import image5 from "../../images/image5.jpg";
+import image18 from "../../images/image18.jpg";
+import image19 from "../../images/image19.png";
+import image20 from "../../images/image20.png";
+import image2 from "../../images/image2.jpg"
+import image4 from "../../images/image4.jpg"
+import image5 from "../../images/image5.jpg"
+
 
 
 
@@ -97,7 +101,6 @@ const Home = () => {
     </section>
     </div>
 
-    <div class="container">
      <div id="carouselExampleCaptions" class="carousel slide">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -106,24 +109,25 @@ const Home = () => {
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src={image2} class="d-block w-100" alt="..."/>
-      <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
+      <img src={image18} class="d-block w-100" alt="..."/>
+      <div class="carousel-caption">
+        <h5>LEUGADIA AWINO</h5>
+        <p>As a young girl she always harbored a passion for dress making.She saved money and a cquired her first machine and started off her dream business.Her husband a wildlife office working in Kitale saw her passion and helped her in aquiring additional machine.With all the necessary machines and tools for work ,her biggest challenge was stock (materials). Immediately after joining Brighter World, she got some training from credit officer and by the time she was through with the training she had qualified to take her first loan of Ksh.15,000. She has used this money to buy material for her business which she says is now fully stocked.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src={image4} class="d-block w-100" alt="..."/>
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Some representative placeholder content for the second slide.</p>
+      <img src={image19} class="d-block w-100" alt="..."/>
+      <div class="carousel-caption">
+        <h5>Florence Wandia Waweru</h5>
+        <p>The year 2021 October is when a friend approached her and convinced her to Join Brighter World Programme through a group i.e Murata s.h.g. Since she is a natural leader, opinion leader, other members recognized her leadership skills and elected her as their chairlady up to date. She is currently servicing her 5th loan amounting to Ksh 100,000 which she used to boost her business. She is grateful to Brighter World for boosting her working capital at the right times throughout.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src={image5} class="d-block w-100" alt="..."/>
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Some representative placeholder content for the third slide.</p>
+      <img src={image20} class="d-block w-100" alt="..."/>
+      <div class="carousel-caption">
+        <h5>Peter Kasaya Wesonga</h5>
+        <p>He is a welder and has successfully opened a metal /glass hardware through his stay in Brighter World which has created employment opportunity to 3 employees. He attributes his success to Brighter World through the subsequent loans of Ksh20,000 40,000, 60,000 which he has serviced.
+        He is currently servicing his 4th loan amounting to Ksh 90,000 which he used to boost his business. He is grateful to Brighter World for empowering him</p>
       </div>
     </div>
   </div>
@@ -136,9 +140,7 @@ const Home = () => {
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-    </div>
-
-    </div>
+</div>
   )
 }
 
