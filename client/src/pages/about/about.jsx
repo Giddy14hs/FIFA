@@ -1,7 +1,8 @@
 import { Layout } from "antd";
 import "./About.css";
 import image7 from "../../images/image7.jpg"
-import image8 from "../../images/image8.jpg"
+import image21 from "../../images/image21.jpg"
+import image22 from "../../images/image22.jpg"
 import "animate.css"
 import Lottie from "lottie-react"
 import animation1 from "../../animations/Animation - 1719687600455.json"
@@ -11,6 +12,7 @@ import animation4 from "../../animations/Animation - 1719585904103.json"
 import animation5 from "../../animations/Animation - 1719657256682.json"
 import animation6 from "../../animations/Animation - 1719657293798.json"
 import { useRef, useEffect } from "react";
+
 
 
 const About = () => {
@@ -150,17 +152,23 @@ const About = () => {
             <div class="container">
               <div class="row">
                 <h1 className="animate__animated animate__fadeInDown animate__delay-5s">DIRECTORS</h1>
-                <div class="col-md-6 text-center">
+                <div class="col-md-4 text-center">
                   <img class="w-50 h-50 rounded-circle" src={image7}  alt="image7" />
                   <p>Esther Lemeta</p>
                   <b>CEO BRIGHTER WORLD</b>
                   <p>As the CEO of Brighter World, it is my honor to introduce you to our mission and the work we are passionate about. Our organization is dedicated to transforming lives and communities through innovative and accessible microfinance solutions.</p>
                 </div>
-                <div class="col-md-6 text-center">
-                  <img class="w-50 h-50 rounded-circle" src={image8} alt="" />
-                  <p>Gideon Lemiso</p>
-                  <b>Project Manager/Leading Developer</b>
-                  <p>Welcome to my corner of the digital world! I'm Gideon, a seasoned software developer with a passion for crafting elegant solutions to complex problems. With years of experience in the industry, I've had the privilege of working on a diverse range of projects, from small-scale applications to large-scale enterprise systems.</p>
+                <div class="col-md-4 text-center">
+                  <img class="w-50 h-50 rounded-circle" src={image21} alt="" />
+                  <p>Emily Ouma</p>
+                  <b>Team Leader Kariobangi</b>
+                  <p>Leading our Nairobi sector,I am a visionary manager dedicated to creating impactful results in one of the most dynamic areas of the city. I mainly focuse on streamlining operations and ensuring excellent service delivery for our partners and clients in Nairobi.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                  <img class="w-50 h-50 rounded-circle" src={image22} alt="" />
+                  <p>Peter Omollo</p>
+                  <b>Team Leader Kisumu</b>
+                  <p>As the Team Leader for Kisumu,I oversees all operations within the region. With a focus on fostering innovation and collaboration,I am committed to driving growth by delivering tailored solutions that address the unique needs of our community.</p>
                 </div>
               </div>
             </div>
