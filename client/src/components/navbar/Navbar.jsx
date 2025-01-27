@@ -23,7 +23,7 @@ const Navbar = () => {
     <div>
     <nav class="navbar navbar-expand-lg bg-warning ">
       <div class="container-fluid">
-        <iframe src={image17} title="Logo" type="PDF" style={{width: "50px", height: "50px"}} scrolling="auto"/>
+        <img src={image17} title="Logo" type="PDF" style={{width: "50px", height: "50px"}} scrolling="auto"/>
       <a class="navbar-brand" href="#"><b></b></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

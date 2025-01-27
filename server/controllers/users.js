@@ -57,7 +57,7 @@ const signup = async(req, res) => {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
-      subject: 'Welcome to Brighter-World Programme  – Your Partner in Financial Growth!',
+      subject: 'Welcome to Brighter-World Programme  – Your Growth Our Strength!',
       html: `
     <div>
       <h2>Hi ${username}, Welcome!</h2>
@@ -72,16 +72,16 @@ const signup = async(req, res) => {
         <li>Benevolent fund options for life's unexpected moments.</li>
         <li>Special loan solutions to bring your dreams to life.</li>
       </ul>
-      <p>Your journey toward financial success starts here. <a href="your-website-link" style="color: #28a745; font-weight: bold;">Explore our services now</a> and see how we can help you achieve your goals today.</p>
+      <p>Your journey toward financial success starts here. <a href="brighterworld.com" style="color: #28a745; font-weight: bold;">Explore our services now</a> and see how we can help you achieve your goals today.</p>
       
       <!-- Call to Action -->
       <div style="text-align: center; margin: 20px;">
-        <a href="brighter-programme.vercel.app/products" style="background-color: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Explore Our Products Now</a>
+        <a href="brighterworld.com/products" style="background-color: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Explore Our Products Now</a>
       </div>
 
       <!-- Footer -->
       <p style="font-size: 14px; color: #555;">Best regards, <br><strong>The Brighter-World Programme Team</strong></p>
-      <p style="font-size: 12px; color: #888;">Contact us: info@brighterworld.com | Visit us: <a href="brighter-programme.vercel.app" style="color: #0056b3;">Brighter-World Programme</a></p>
+      <p style="font-size: 12px; color: #888;">Contact us: info@brighterworld.com | Visit us: <a href="brighterworld.com" style="color: #0056b3;">Brighter-World Programme</a></p>
     </div>
   `,
   attachments: [

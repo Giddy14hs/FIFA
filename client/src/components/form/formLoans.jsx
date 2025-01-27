@@ -95,7 +95,7 @@ const BenevolentForm = () => {
           <Option value="group">Group Loans</Option>
           <Option value="individual">Individual Loans</Option>
           <Option value="special">Special Loans</Option>
-          <Option value="savings">Savigs Plan</Option>
+          <Option value="savings">Savings Plan</Option>
           <Option value="benevolent">Benevolent Fund</Option>
           {/* Add more options as needed */}
         </Select>

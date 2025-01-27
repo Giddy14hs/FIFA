@@ -4,151 +4,11 @@ import dotenv from "dotenv"
 import { OAuth2Client } from 'google-auth-library';
 import express from "express";
 import User from '../models/user.js';
-
+import nodemailer from "nodemailer"
 const app = express()
 dotenv.config()
 
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
-
-// app.post('/auth/google/callback', async (req, res) => {
-//   const token = req.body.token;
-  
-//   try {
-//     const ticket = await client.verifyIdToken({
-//       idToken: token,
-//       audience: process.env.GOOGLE_CLIENT_ID,
-//     });
-
-//     const payload = ticket.getPayload();
-//     // You can now access user info from payload and create a new user or log them in.
-//     res.status(200).json({ user: payload }); // Example response with user info
-//   } catch (error) {
-//     res.status(400).json({ error: 'Invalid token' });
-//   }
-// });
-
-
-
-// passport.use(new GoogleStrategy({
-//   clientID: process.env.CLIENT_ID,
-//   clientSecret: process.env.CLIENT_SECRET,
-//   callbackURL: "http://localhost:3000/auth/callback"
-// },
-// function(accessToken, refreshToken, profile, done) {
-//   // Handle the user profile
-//   return done(null, profile);
-// }));
-
-
-
-
-// passport.use(
-//   new GoogleStrategy(
-//     {
-//       clientID: process.env.GOOGLE_CLIENT_ID,
-//       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-//       callbackURL: "http://localhost:5001/auth/google/callback",
-//       scope: ["profile", "email"]
-//     },
-//      function (accessToken, refreshToken, profile, callback) {
-// 			callback(null, profile);
-// 		}
-//   )
-// );
-
-
-
-
-// passport.serializeUser((user, done) => {
-//   done(null, user.googleId); // Serialize user by ID
-// });
-
-// passport.deserializeUser(async (googleId, done) => {
-//   try {
-//     const user = await User.findOne({googleId}); // Replace with your method to fetch the user
-//     done(null, user);
-//   } catch (err) {
-//     done(err, null);
-//   }
-// });
-
-
-
-// Google OAuth Strategy
-// passport.use(
-//   new GoogleStrategy(
-//     {
-//       clientID: process.env.GOOGLE_CLIENT_ID,
-//       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-//       callbackURL: "http://localhost:5001/auth/google/callback",
-//       scope: ["profile", "email"]
-//     },
-//     async function (accessToken, refreshToken, profile, done) {
-//       try {
-//         console.log("Google Profile:", profile); // Debug the profile object
-
-//         // Check if the user already exists
-//         let user = await User.findOne({ googleId: profile.id });
-
-//         if (!user) {
-//           // If user doesn't exist, create a new one
-//           user = new User({
-//             googleId: profile.id,
-//             email: profile.emails[0].value, // Ensure emails are enabled in Google OAuth scope
-//             name: profile.displayName,
-//           });
-//           await user.save();
-//         }
-
-//         done(null, user); // Pass the user to be serialized
-//       } catch (error) {
-//         console.error("Error in Google Strategy:", error);
-//         done(error, null); // If there's an error, pass it to the done callback
-//       }
-//     }
-//   )
-// );
-
-
-// // Serialize User
-// passport.serializeUser((user, done) => {
-//   console.log("Serializing User:", user); // Debug the user object
-//   done(null, user.googleId); // Store googleId in the session
-// });
-
-// // Deserialize User
-// passport.deserializeUser(async (googleId, done) => {
-//   try {
-//     console.log("Deserializing User with GoogleID:", googleId); // Debug the ID
-//     const user = await User.findOne({ googleId });
-//     if (!user) {
-//       console.error("User not found during deserialization");
-//       return done(null, false);
-//     }
-//     done(null, user);
-//   } catch (error) {
-//     console.error("Error in deserialization:", error);
-//     done(error, null);
-//   }
-// });
-
-
-
-
-// passport.use(
-// 	new GoogleStrategy(
-// 		{
-// 			clientID: process.env.GOOGLE_CLIENT_ID,
-// 			clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-// 			callbackURL: "http://localhost:5001/auth/google/callback",
-// 			scope: ["profile", "email"],
-// 		},
-// 		function (accessToken, refreshToken, profile, callback) {
-// 			callback(null, profile);
-// 		}
-// 	)
-// );
-
 
 
 passport.use(new GoogleStrategy({
@@ -169,6 +29,57 @@ passport.use(new GoogleStrategy({
         email: profile.emails[0].value,
       });
     }
+     // Send the welcome email to the newly created user
+     const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: user.email,
+      subject: 'Welcome to Brighter-World Programme  – Your Growth Our Strength!',
+      html: `
+    <div>
+      <h2>Hi ${user.username}, Welcome!</h2>
+      <img src="cid:welcomeImage" alt="Welcome" style="width:100%; max-width:600px;" />
+      <p>Explore our services now!</p>
+    </div>
+    <div>
+      <!-- Main Content -->
+      <p>We’re thrilled to have you join us as part of a community dedicated to empowering financial growth. Here’s how we can help:</p>
+      <ul style="padding-left: 20px;">
+        <li>Flexible savings plans to grow your wealth.</li>
+        <li>Benevolent fund options for life's unexpected moments.</li>
+        <li>Special loan solutions to bring your dreams to life.</li>
+      </ul>
+      <p>Your journey toward financial success starts here. <a href="brighterworld.com" style="color: #28a745; font-weight: bold;">Explore our services now</a> and see how we can help you achieve your goals today.</p>
+      
+      <!-- Call to Action -->
+      <div style="text-align: center; margin: 20px;">
+        <a href="brighterworld.com/products" style="background-color: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Explore Our Products Now</a>
+      </div>
+
+      <!-- Footer -->
+      <p style="font-size: 14px; color: #555;">Best regards, <br><strong>The Brighter-World Programme Team</strong></p>
+      <p style="font-size: 12px; color: #888;">Contact us: info@brighterworld.com | Visit us: <a href="brighterworld.com" style="color: #0056b3;">Brighter-World Programme</a></p>
+    </div>
+  `, 
+  attachments: [
+    {
+      filename: 'image23.jpg',
+      path: 'https://i.imgur.com/DFh5odQ.jpeg', 
+      cid: 'welcomeImage' 
+    }
+  ] 
+    };
+
+    // Send the email
+    await transporter.sendMail(mailOptions);
+    console.log('Welcome email sent to', user.email);
 
     // Return the user information to the next function
     return done(null, user);
@@ -177,18 +88,30 @@ passport.use(new GoogleStrategy({
   }
 }));
 
-passport.serializeUser((user, done) => {
-	done(null, user.googleId);
-});
 
-passport.deserializeUser(async(googleId, done) => {
+
+// used to serialize the user for the session
+passport.serializeUser((user, done) => {
+  done(null, user.id)
+})
+
+// used to deserialize the user
+passport.deserializeUser(async (googleId, done) => {
   try {
+    console.log("Deserializing User:", googleId);
+
+    // Use findOne instead of findById for the googleId field
     const user = await User.findOne({ googleId });
+
     if (!user) {
-      return done(new Error('User not found'), null);
+      console.error("User not found for googleId:", googleId);
+      return done(null, false); // Return false if no user is found
     }
-    done(null, user); // Return the full user object
+
+    console.log("User deserialized successfully:", user);
+    done(null, user); // Pass the user to the session
   } catch (error) {
-    done(error, null);
+    console.error("Error in deserializing user:", error);
+    done(error, null); // Pass the error to Passport
   }
 });

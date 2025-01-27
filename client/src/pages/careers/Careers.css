@@ -1,6 +1,169 @@
-.careers{
+/* .careers{
   width: 350px;
   height: 350px;
   text-align: center;
   align-items: start;
+} */
+ /* Careers Page Styling */
+.careers {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+.careers-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Hero Section */
+.careers-hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.careers-hero h1 {
+  font-size: 2.5rem;
+  color: #0b0e12;
+}
+
+.careers-hero p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Why Work With Us */
+.careers-why {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.careers-why-content {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.careers-why h3 {
+  color: #444;
+  font-size: 1.8rem;
+}
+
+.careers-why ul {
+  list-style: none;
+  padding: 0;
+}
+
+.careers-why ul li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  position: relative;
+  padding-left: 20px;
+}
+
+.careers-why ul li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #007bff;
+}
+
+/* Job Listings */
+.careers-jobs {
+  margin-bottom: 40px;
+}
+
+.careers-jobs h3 {
+  text-align: center;
+  color: #444;
+}
+
+.careers-job {
+  background: #fff;
+  padding: 20px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.careers-job h4 {
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.careers-job p {
+  margin: 0 0 10px;
+  color: #666;
+}
+
+.careers-job button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.careers-job button:hover {
+  background-color: #0056b3;
+}
+
+/* Testimonials */
+.careers-testimonials {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.testimonial {
+  margin: 20px 0;
+  font-style: italic;
+  color: #555;
+}
+
+.testimonial footer {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* FAQs */
+.careers-faq h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+}
+
+.faq-item h4 {
+  font-size: 1.2rem;
+  color: #444;
+}
+
+.faq-item p {
+  margin: 5px 0 0;
+  color: #666;
+}
+
+/* Call to Action */
+.careers-cta {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.careers-cta button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.careers-cta button:hover {
+  background-color: #218838;
 }

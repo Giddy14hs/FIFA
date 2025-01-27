@@ -3,19 +3,6 @@ import {Router} from "express"
 
 const router = Router()
 
-//Error handling
-// router.get('/login/success', (req, res) => {
-//   if(req.user) {
-//     res.status(200).json({
-//       error: false,
-//       message: "Successfully Logged In",
-//       user: req.user
-//     })
-//   } else {
-//     res.status(403).json({error: true, message: "Not authorized"})
-//   }
-// })
-
 router.get('/login/success', (req, res) => {
   if (req.user) {
     res.status(200).json({
@@ -49,7 +36,7 @@ router.get('/google/callback',
       const token = req.user.token; // Token generated during login
       const user = req.user; // User data
       res.redirect(`http://localhost:3000?token=${token}&user=${JSON.stringify(user)}`);
-      ;
+      
     } 
 );
 
