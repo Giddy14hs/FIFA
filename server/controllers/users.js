@@ -57,7 +57,7 @@ const signup = async(req, res) => {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
-      subject: 'Welcome to Brighter-World Programme  – Your Growth Our Strength!',
+      subject: 'Welcome to Brighter-World – Your Growth Our Strength!',
       html: `
     <div>
       <h2>Hi ${username}, Welcome!</h2>

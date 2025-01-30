@@ -41,7 +41,7 @@ passport.use(new GoogleStrategy({
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: user.email,
-      subject: 'Welcome to Brighter-World Programme  – Your Growth Our Strength!',
+      subject: 'Welcome to Brighter-World   – Your Growth Our Strength!',
       html: `
     <div>
       <h2>Hi ${user.username}, Welcome!</h2>
