@@ -68,7 +68,7 @@ const About = () => {
               <h1 className="animate-hover animate__animated animate__heartBeat">About Us</h1>
                 <div class="col-md-12 text-center py-5 mb-4">
                   <h3 class="animate-hover animate__animated animate__fadeInDown animate__delay-1s">Empowering Lives Through Financial Inclusion</h3>
-                  <p className="animate__animated animate__zoomIn">At Brighter World, we believe that everyone deserves access to the financial resources they need to improve their lives. Our mission is to empower individuals and communities by providing affordable microfinance services that foster economic growth and development.</p>
+                  <p className="animate__animated animate__zoomIn">At Brighter World, we believe that everyone deserves access to the financial resources they need to improve their lives. Our mission is to empower individuals and communities by providing affordable financial services that foster economic growth and development.</p>
                 </div>
                 <div className="col-md-12 text-center mt-5 mb-5 ">
                   <h3 class="animate-hover animate__animated animate__fadeInDown animate__delay-1s">Who We Are</h3>
@@ -84,7 +84,7 @@ const About = () => {
                 </div>
                 <div class="col-md-12 text-center">
                   <h3 className="animate-hover animate__animated animate__fadeInDown animate__delay-2s">Our Impact</h3>
-                  <p className="animate__animated animate__zoomIn">Since our inception, we have helped thousands of individuals achieve their financial goals and improve their quality of life. Our clients' success stories are a testament to the transformative power of microfinance. By fostering entrepreneurship and self-reliance, we are creating lasting change and contributing to the overall economic development of the communities we serve.</p>
+                  <p className="animate__animated animate__zoomIn">Since our inception, we have helped thousands of individuals achieve their financial goals and improve their quality of life. Our clients' success stories are a testament to our transformative power. By fostering entrepreneurship and self-reliance, we are creating lasting change and contributing to the overall economic development of the communities we serve.</p>
                 </div>
               </div>
             </div>

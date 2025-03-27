@@ -65,7 +65,7 @@ passport.use(new GoogleStrategy({
 
       <!-- Footer -->
       <p style="font-size: 14px; color: #555;">Best regards, <br><strong>The Brighter-World Programme Team</strong></p>
-      <p style="font-size: 12px; color: #888;">Contact us: info@brighterworld.com | Visit us: <a href="brighterworld.com" style="color: #0056b3;">Brighter-World Programme</a></p>
+      <p style="font-size: 12px; color: #888;">Contact us: info@brighterworldltd.com | Visit us: <a href="brighterworldltd.com" style="color: #0056b3;">Brighter-World Programme</a></p>
     </div>
   `, 
   attachments: [
