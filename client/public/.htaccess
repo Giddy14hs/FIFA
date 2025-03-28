@@ -3,9 +3,19 @@ Options -MultiViews
 RewriteEngine On
 RewriteBase /
 
+# Handle Authorization Header
+RewriteCond %{HTTP:Authorization} .
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
 # Ensure direct file access works (e.g., images, CSS, etc.)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 # Redirect everything else to index.html
-RewriteRule . /index.html [QSA,L]
+RewriteRule ^ index.html [QSA,L]
+
+# Prevent directory listing
+Options -Indexes
+
+# Enable CORS
+Header set Access-Control-Allow-Origin "*"
