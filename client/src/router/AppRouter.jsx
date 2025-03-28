@@ -17,6 +17,7 @@ import Benevolent from "../pages/loans/benevolentFund/benevolent"
 import Footer from "../components/footer/footer"
 import History from "../pages/history/History"
 import Branches from "../pages/branches/branches"
+import PrivacyPolicy from "../components/privacyPolicy/privacyPolicy"
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import {Layout} from "antd"
 
@@ -32,8 +33,6 @@ const LayoutWithConditionalNavFooter = ({ children }) => {
     </Layout>
   );
 };
-
-
 
 const AppRouter = () => {
   return (
@@ -57,6 +56,7 @@ const AppRouter = () => {
           <Route path="/products/benevolentfund" element={<Benevolent />} />
           <Route path="/branches" element={<Branches />} />
           <Route path="/history" element={<History/>} />
+          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         </Routes>
       </LayoutWithConditionalNavFooter>
     </BrowserRouter>
