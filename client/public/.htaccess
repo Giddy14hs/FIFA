@@ -1,5 +1,11 @@
 Options -MultiViews
 
 RewriteEngine On
+RewriteBase /
+
+# Ensure direct file access works (e.g., images, CSS, etc.)
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^ index.html [QSA,L] 
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirect everything else to index.html
+RewriteRule . /index.html [QSA,L]
