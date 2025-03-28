@@ -20,7 +20,6 @@ const Individual = () => {
     <div class="container">
       <div className="business-container row">
             <div className=".g-col-2" id='business'>
-                <img />
                 <h2 className="animate-hover animate__animated animate__rollIn animate__delay-1s">Individual Loans</h2>
                 <ul>
                   <h4 className="animate-hover animate__animated animate__zoomIn animate__delay-2s">Features</h4>

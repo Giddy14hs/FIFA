@@ -20,7 +20,6 @@ const Benevolent = () => {
     <div class="container">
       <div className="business-container row">
             <div className=".g-col-2" id='business'>
-                <img />
                 <h2 className="text-center">Benevolent Fund</h2>
                 <ul>
                   <h4>Terms</h4>

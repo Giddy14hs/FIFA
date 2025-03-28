@@ -20,7 +20,6 @@ const Business = () => {
         <div class="grid text-center">
           <div className="row business-container">
                 <div className=".g-col-2" id='business'>
-                    <img />
                     <h2 className="animate-hover animate__animated animate__rollIn animate__delay-1s">Business Loans</h2>
                     <ul>
                       <h4 className="animate-hover animate__animated animate__zoomIn animate__delay-2s">Benefits</h4>

@@ -4,7 +4,6 @@ import Home from '../pages/home/Home'
 import Navbar from '../components/navbar/Navbar'
 import About from '../pages/about/about'
 import Login from '../pages/login/AuthForm'
-import PrivateRouter from './PrivateRouter'
 import Products from "../pages/Products&Services/Products"
 import Careers from "../pages/careers/Careers"
 import Loans from "../pages/loans/businessLoans/business"

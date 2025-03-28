@@ -38,7 +38,7 @@ const Home = () => {
                   <p class="text-muted" className="animate-hover animate__animated animate__flip animate__delay-3s">To build capacity of small entrepreneurs to realize their full potential through trainings and affordable credit</p>
                 </div>
                 <div class="col-md-6 text-center mx-auto">
-                    <a href="#" class="video" data-image="images/image1.jpg"
+                    <a class="video" data-image="images/image1.jpg"
                   data-toggle="modal" data-target="#firstModal"><i class="fa-solid fa-play fa-3x"></i></a>
                 </div>
               </div>

@@ -21,7 +21,6 @@ const Special = () => {
       <div className="business-container row">
             <div className=".g-col-2" id='business'>
                 <div class="col">
-                <img />
                 <h1 className="animate-hover animate__animated animate__rollIn animate__delay-1s">Special Loans</h1>
                 <ul>
                   <h4 className="animate-hover animate__animated animate__zoomIn animate__delay-2s">All special loans will be serviced for a maximum of 3 months and should have a separate savings from business loans</h4>

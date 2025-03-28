@@ -20,7 +20,6 @@ const Msingi = () => {
       <div className="business-container row">
             <div className=".g-col-2" id='business'>
                 <div class="col">
-                <img />
                 <h2 className="animate-hover animate__animated animate__rollIn animate__delay-1s">Group Loans</h2>
                 <ul>
                   <h4 className="animate-hover animate__animated animate__zoomIn animate__delay-2s">Benefits</h4>

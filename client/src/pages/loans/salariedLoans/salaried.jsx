@@ -20,7 +20,6 @@ const Salaried = () => {
       <div className="business-container row">
             <div className=".g-col-2" id='business'>
                 <div class="col">
-                <img />
                 <h1 className="animate-hover animate__animated animate__rollIn animate__delay-1s">Salaried Loans</h1>
                 <ul>
                   <h4 className="animate-hover animate__animated animate__zoomIn animate__delay-2s">Terms</h4>
