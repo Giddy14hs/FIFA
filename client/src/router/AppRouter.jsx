@@ -17,7 +17,7 @@ import Benevolent from "../pages/loans/benevolentFund/benevolent"
 import Footer from "../components/footer/footer"
 import History from "../pages/history/History"
 import Branches from "../pages/branches/branches"
-import PrivacyPolicy from "../components/privacyPolicy/privacyPolicy"
+import PrivacyPolicy from "../pages/privacyPolicy/privacyPolicy"
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import {Layout} from "antd"
 
