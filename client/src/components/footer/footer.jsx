@@ -76,7 +76,8 @@ const Footer = () => {
                   <p>BRIGHTER WORLD LTD</p>
                   <p>P.O BOX 6332-00300</p>
                   <p>NAIROBI/KENYA</p>
-                  <p>Email: brighterworld22@gmail.com</p>
+                  <a href='/privacypolicy' alt="PrivacyPolicy">Privacy Policy</a>
+                  <p>Email: brighter22@brighterworldltd.com</p>
                 </div>
               </div>
             </div>
