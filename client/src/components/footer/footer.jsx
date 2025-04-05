@@ -34,7 +34,7 @@ const Footer = () => {
                 </div>
                 <div className="social-d-flex flex-row py-5">
                   <a><i class="fa-brands fa-twitter p-2 m-2"></i></a>
-                  <a><i class="fa-brands fa-facebook p-2"></i></a> 
+                  <a><i href= "https://www.facebook.com/share/1BMRMMq87T/" alt="Facebook" class="fa-brands fa-facebook p-2"></i></a> 
                   <a><i class="fa-brands fa-instagram p-2"></i></a>
                 </div>
               </div>

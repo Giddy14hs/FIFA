@@ -89,7 +89,7 @@ const PrivacyPolicy = () => {
         <p>
           If you have any questions about this Privacy Policy, please contact us at:
           <br />
-          Email: brighterworld22@gmail.com
+          Email: brighterworld22@brighterworldltd.com
           <br />
           Phone: 0720328587 or 0103228576
           <br />
