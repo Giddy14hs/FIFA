@@ -20,6 +20,8 @@ import Branches from "../pages/branches/branches"
 import PrivacyPolicy from "../pages/privacyPolicy/privacyPolicy"
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import {Layout} from "antd"
+import ScrollAnimation from '../components/ScrollAnimation'
+import { motion } from 'framer-motion'
 
 const LayoutWithConditionalNavFooter = ({ children }) => {
   const location = useLocation();
@@ -28,7 +30,15 @@ const LayoutWithConditionalNavFooter = ({ children }) => {
   return (
     <Layout>
       {!hideNavAndFooter && <Navbar />}
-      {children}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <ScrollAnimation>
+          {children}
+        </ScrollAnimation>
+      </motion.div>
       {!hideNavAndFooter && <Footer />}
     </Layout>
   );

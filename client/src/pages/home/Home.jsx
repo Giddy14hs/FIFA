@@ -6,10 +6,7 @@ import image20 from "../../images/image20.png";
 import image2 from "../../images/image2.jpg"
 import image4 from "../../images/image4.jpg"
 import image5 from "../../images/image5.jpg"
-
-
-
-
+import ScrollAnimation from '../../components/ScrollAnimation'
 
 const Home = () => {
   return (
@@ -19,11 +16,12 @@ const Home = () => {
             <div class="overlay">
               <div class="container">
                 <div class="row text-center">
-                  <div class="col">
-                    <h1 class="display-4" className="animate-hover animate__animated animate__flipInX animate__delay-2s">BRIGHTER WORLD</h1>
-                    <p class="text-muted" className="animate-hover animate__animated animate__bounce animate__delay-1s">Brighter world is a company registered under companies Act in May 2016 as limited by guarantee. Its main aim is to build capacity of small entrepreneurs to realize their full potential through trainings and affordable credit hence financial inclusion. Financial inclusion is defined as the provision of “a full suite of quality financial services, provided at affordable prices, in a convenient manner, and with dignity for the clients”</p>
-  
-                  </div>
+                  <ScrollAnimation>
+                    <div class="col">
+                      <h1 class="display-4" className="animate-hover animate__animated animate__flipInX animate__delay-2s">BRIGHTER WORLD</h1>
+                      <p class="text-muted" className="animate-hover animate__animated animate__bounce animate__delay-1s">Brighter world is a company registered under companies Act in May 2016 as limited by guarantee. Its main aim is to build capacity of small entrepreneurs to realize their full potential through trainings and affordable credit hence financial inclusion. Financial inclusion is defined as the provision of "a full suite of quality financial services, provided at affordable prices, in a convenient manner, and with dignity for the clients"</p>
+                    </div>
+                  </ScrollAnimation>
                 </div>
               </div>
             </div>
@@ -33,14 +31,18 @@ const Home = () => {
           <section id="work" class="py-5">
             <div class="container">
               <div class="row">
-                <div class="col-md-12 text-center">
-                  <h1 className="animate-hover animate__animated animate__rotateIn animate__delay-2s">Our Work</h1>
-                  <p class="text-muted" className="animate-hover animate__animated animate__flip animate__delay-3s">To build capacity of small entrepreneurs to realize their full potential through trainings and affordable credit</p>
-                </div>
-                <div class="col-md-6 text-center mx-auto">
+                <ScrollAnimation delay={0.2}>
+                  <div class="col-md-12 text-center">
+                    <h1 className="animate-hover animate__animated animate__rotateIn animate__delay-2s">Our Work</h1>
+                    <p class="text-muted" className="animate-hover animate__animated animate__flip animate__delay-3s">To build capacity of small entrepreneurs to realize their full potential through trainings and affordable credit</p>
+                  </div>
+                </ScrollAnimation>
+                <ScrollAnimation delay={0.4}>
+                  <div class="col-md-6 text-center mx-auto">
                     <a class="video" data-image="images/image1.jpg"
-                  data-toggle="modal" data-target="#firstModal"><i class="fa-solid fa-play fa-3x"></i></a>
-                </div>
+                      data-toggle="modal" data-target="#firstModal"><i class="fa-solid fa-play fa-3x"></i></a>
+                  </div>
+                </ScrollAnimation>
               </div>
             </div>
           </section>
