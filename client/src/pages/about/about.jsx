@@ -151,7 +151,7 @@ const About = () => {
           <section>
             <div class="container">
               <div class="row">
-                <h1 className="animate__animated animate__fadeInDown animate__delay-5s">DIRECTORS</h1>
+                <h1 className="animate__animated animate__fadeInDown animate__delay-5s">MANAGEMENT</h1>
                 <div class="col-md-4 text-center">
                   <img class="w-50 h-50 rounded-circle" src={image7}  alt="image7" />
                   <p>Esther Lemeta</p>
