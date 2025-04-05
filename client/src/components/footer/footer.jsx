@@ -33,9 +33,9 @@ const Footer = () => {
                   <p>Stay connected with us and be part of a global movement empowering individuals through financial inclusion. By following us on social media, you'll receive the latest updates on our projects, success stories, and opportunities to get involved. Join our community and see how microfinance is transforming lives every day.</p>
                 </div>
                 <div className="social-d-flex flex-row py-5">
-                  <a><i  href="https://x.com/BrighterWorld17?t=rCviBKZ7YWh6vRLl3j7wXA&s=09" alt="Twitter" class="fa-brands fa-twitter p-2 m-2"></i></a>
-                  <a><i href= "https://www.facebook.com/share/1BMRMMq87T/" alt="Facebook" class="fa-brands fa-facebook p-2"></i></a> 
-                  <a><i class="fa-brands fa-instagram p-2"></i></a>
+                  <a href="https://x.com/BrighterWorld17?t=rCviBKZ7YWh6vRLl3j7wXA&s=09" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter p-2 m-2"></i></a>
+                  <a href="https://www.facebook.com/share/1BMRMMq87T/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook p-2"></i></a> 
+                  <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram p-2"></i></a>
                 </div>
               </div>
               <div className="col-md-6">
