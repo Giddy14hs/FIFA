@@ -11,10 +11,8 @@ import image16 from '../../images/image16.jpg'
 import { useNavigate } from 'react-router-dom'
 import ScrollAnimation from '../../components/ScrollAnimation'
 
-
 const Products = () => {
   const lazyImagesRef = useRef([]);
-
   const navigate = useNavigate();
 
   const handleNavigation = (path) => {
@@ -24,7 +22,6 @@ const Products = () => {
 
   useEffect(() => {
     const lazyImages = lazyImagesRef.current;
-
     const imageObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -52,177 +49,92 @@ const Products = () => {
     };
   }, []);
 
-  const images = [
-    image9,
-    image10,
-    image11,
-    image12,
-    image13,
-    image14,
-    image15,
-    image16,
+  const products = [
+    {
+      image: image9,
+      title: "Business Loans",
+      description: "A loan to grow or enhance an existing business or expand into another business venture.",
+      path: '/products/businessLoans'
+    },
+    {
+      image: image10,
+      title: "Msingi Loans",
+      description: "A loan to start a new business for a client without an existing business but has the desire to develop their business skills to support themselves and/or their family.",
+      path: '/products/msingiLoans'
+    },
+    {
+      image: image11,
+      title: "Salaried Loans",
+      description: "This product is to cater for members of staff of private and public institutions who earn low income and are in need of loans to develop themselves and their families.",
+      path: '/products/salariedLoans'
+    },
+    {
+      image: image12,
+      title: "Group Loans",
+      description: "The product is for groups running successful table banking and requires money to meet its members' demand.",
+      path: '/products/groupLoans'
+    },
+    {
+      image: image13,
+      title: "Individual Loans",
+      description: "These are loans given to an individual who wants to expand their business and they need not to be in a group. The loans will be secured.",
+      path: '/products/individualLoans'
+    },
+    {
+      image: image14,
+      title: "Special Loans",
+      description: "The purpose is to provide customized financial solutions that empower individuals and small businesses to achieve their unique goals.",
+      path: '/products/specialLoans'
+    },
+    {
+      image: image15,
+      title: "Savings Plan",
+      description: "The product is for our clients, encouraging them to save for a rainy day, emergency, asset, investment or holidays and family needs.",
+      path: '/products/savingsplan'
+    },
+    {
+      image: image16,
+      title: "Benevolent Fund",
+      description: "This product is to support our client in times of demise of one of the nuclear family members.",
+      path: '/products/benevolentfund'
+    }
   ];
 
-
   return (
-    <>
-      <section id="product" className="mt-5 pb-5">
-        <div className="container-fluid">
-          <div className="row">
-            <ScrollAnimation>
-              <div className="col-md-4 pb-5">
-                <div className="imageContainer">
-                  <img  ref={el => lazyImagesRef.current[0] = el}
-                        data-src={image9}
-                        src="placeholder.jpg"
-                        alt="Business Loans"
-                        className="img-fluid lazy"/>
-                  <div className="imgOverlay pb-3">
-                    <div className="imgText">
-                      <h4 className = "animate__animated animate__bounceIn animate__delay-2s">Business Loans</h4>
-                      <p className = "animate__animated animate__zoomIn animate__delay-1s">A loan to grow or enhance an existing business or expand into another business venture.</p>
-                      <a href="#business">
-                          <button type="button" name="button" className="btn btn-outline-primary px-3" onClick={() => handleNavigation('/products/businessLoans')}>Read More</button>
-                        </a>
-                    </div>
+    <section id="product" className="mt-5 pb-5">
+      <div className="products-grid">
+        {products.map((product, index) => (
+          <ScrollAnimation key={index} delay={index * 0.1}>
+            <div className="product-card">
+              <div className="imageContainer">
+                <img
+                  ref={el => lazyImagesRef.current[index] = el}
+                  data-src={product.image}
+                  src="placeholder.jpg"
+                  alt={product.title}
+                  className="img-fluid lazy"
+                />
+                <div className="imgOverlay">
+                  <div className="imgText">
+                    <h4 className="animate__animated animate__bounceIn animate__delay-2s">{product.title}</h4>
+                    <p className="animate__animated animate__zoomIn animate__delay-1s">{product.description}</p>
+                    <button
+                      type="button"
+                      className="btn btn-outline-primary px-3"
+                      onClick={() => handleNavigation(product.path)}
+                    >
+                      Read More
+                    </button>
                   </div>
-                </div>
-              </div>
-            </ScrollAnimation>
-            <ScrollAnimation delay={0.2}>
-              <div className="col-md-4 pb-5">
-                <div className="imageContainer">
-                  <img ref={el => lazyImagesRef.current[1] = el}
-                        data-src={image10}
-                        src="placeholder.jpg"
-                        alt="Msingi Loans"
-                        className="img-fluid lazy"/>
-                  <div className="imgOverlay pb-3">
-                    <div className="imgText">
-                      <h4 className = "animate__animated animate__bounceIn animate__delay-2s">Msingi Loans(Business Start-up Loans)</h4>
-                      <p className = "animate__animated animate__zoomIn animate__delay-1s">A loan to start a new business for a client without an existing business but has the desire to develop their business skills to support themselves and/or their family.</p>
-                      <button type="button" name="button" className="btn btn-outline-primary px-3" onClick={() => handleNavigation('/products/msingiLoans')}>Read More</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ScrollAnimation>
-            <ScrollAnimation delay={0.4}>
-              <div className="col-md-4 pb-5">
-                <div className="imageContainer">
-                  <img ref={el => lazyImagesRef.current[2] = el}
-                        data-src={image11}
-                        src="placeholder.jpg"
-                        alt="Salaried Loans"
-                        className="img-fluid lazy"/>
-                  <div className="imgOverlay pb-3">
-                    <div className="imgText">
-                      <h4 className = "animate__animated animate__bounceIn animate__delay-3s">Salaried Loans</h4>
-                      <p className = "animate__animated animate__zoomIn animate__delay-2s">This product is to cater for members of staff of private and public institutions who earn low income and are in need of loans to develop themselves and their families.</p>
-                      <button type="button" name="button" className="btn btn-outline-primary px-3" onClick={() => handleNavigation('/products/salariedLoans')}>Read More</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ScrollAnimation>
-            <ScrollAnimation delay={0.6}>
-              <div className="col-md-4 pb-5">
-                <div className="imageContainer">
-                  <img ref={el => lazyImagesRef.current[3] = el}
-                        data-src={image12}
-                        src="placeholder.jpg"
-                        alt="Group Loans"
-                        className="img-fluid lazy"/>
-                  <div className="imgOverlay pb-3">
-                    <div className="imgText">
-                      <h4 className = "animate__animated animate__bounceIn animate__delay-3s">Group Loans</h4>
-                      <p className = "animate__animated animate__zoomIn animate__delay-2s">The product is for groups running successful table banking and requires money to meet its members' demand.</p>
-                      <button type="button" name="button" className="btn btn-outline-primary px-3" onClick={() => handleNavigation('/products/groupLoans')}>Read More</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ScrollAnimation>
-            <ScrollAnimation delay={0.8}>
-              <div className="col-md-4 pb-5">
-                <div className="imageContainer">
-                  <img ref={el => lazyImagesRef.current[4] = el}
-                        data-src={image13}
-                        src="placeholder.jpg"
-                        alt="Individual Loans"
-                        className="img-fluid lazy"/>
-                  <div className="imgOverlay pb-3">
-                    <div className="imgText">
-                      <h4 className = "animate__animated animate__bounceIn animate__delay-4s">Individual Loans</h4>
-                      <p className = "animate__animated animate__zoomIn animate__delay-3s">These are loans given to an individual who wants to expand their business and they need not to be in a group. The loans will be secured.</p>
-                      <button type="button" name="button" className="btn btn-outline-primary px-3" onClick={() => handleNavigation('/products/individualLoans')}>Read More</button>
-                    </div>
-                  </div>
-                   </div>
-              </div>
-            </ScrollAnimation>
-            <ScrollAnimation delay={1}>
-              <div className="col-md-4 pb-5">
-                <div className="imageContainer">
-                  <img ref={el => lazyImagesRef.current[5] = el}
-                        data-src={image14}
-                        src="placeholder.jpg"
-                        alt="Special Loans"
-                        className="img-fluid lazy"/>
-                  <div className="imgOverlay">
-                    <div className="imgText">
-                      <h4 className = "animate__animated animate__bounceIn animate__delay-4s">Special Loans</h4>
-                      <p className = "animate__animated animate__zoomIn animate__delay-3s">The purpose is to provide customized financial solutions that empower individuals and small businesses to achieve their unique goals.</p>
-                      <button type="button" name="button" className="btn btn-outline-primary px-3" onClick={() => handleNavigation('/products/specialLoans')}>Read More</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ScrollAnimation>
-          </div>
-        </div>
-      </section>
-      <section>
-        <div className="container-fluid">
-        <div className="row">
-          <ScrollAnimation>
-            <div className="col-md-6 pb-3">
-              <div className="card-img">
-                <img ref={el => lazyImagesRef.current[6] = el}
-                    data-src={image15}
-                    src="placeholder.jpg"
-                    alt="Savings Plan"
-                    className="img-fluid lazy"/>
-                <div className="card-body">
-                    <h3 className = "animate__animated animate__bounceIn animate__delay-4s">Savings Plan</h3>
-                    <p className = "animate__animated animate__zoomIn animate__delay-3s">The product is for our clients, encouraging them to save for a rainy day, emergency, asset, investment or holidays and family needs.</p>
-                <button type="button" name="button" className="btn btn-outline-primary px-3" onClick={() => handleNavigation('/products/savingsplan')}>Read More</button>
                 </div>
               </div>
             </div>
           </ScrollAnimation>
-          <ScrollAnimation delay={0.2}>
-            <div className="col-md-6 pb-3">
-              <div className="card-img">
-                <img ref={el => lazyImagesRef.current[7] = el}
-                    data-src={image16}
-                    src="placeholder.jpg"
-                    alt="Benevolent Fund"
-                    className="img-fluid lazy"/>
-                <div className="card-body">
-                  <h3 className = "animate__animated animate__bounceIn animate__delay-4s">Benevolent Fund</h3>
-                <p className = "animate__animated animate__zoomIn animate__delay-3s">This product is to support our client in times of demise of one of the nuclear family members.</p>
-                <button type="button" name="button" className="btn btn-outline-primary px-3" onClick={() => handleNavigation('/products/benevolentfund')}>Read More</button>
-                </div>
-              </div>
-            </div>
-          </ScrollAnimation>
-        </div>
-        </div>
-      </section>
-    </>
-  )
-}
+        ))}
+      </div>
+    </section>
+  );
+};
 
 export default Products;
 

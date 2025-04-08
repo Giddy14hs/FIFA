@@ -87,10 +87,25 @@
 
 
 
- #product {
-  background-color: rgb(255, 220, 61); /* Yellow background */
-  padding-left: 0;
-  padding-right: 0;
+#product {
+  background-color: rgb(255, 220, 61);
+  padding: 2rem 0;
+}
+
+.products-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.product-card {
+  flex: 0 0 calc(50% - 2rem);
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .imageContainer {
@@ -98,67 +113,79 @@
   text-align: center;
   overflow: hidden;
   width: 100%;
-  height: 100%;
-  animation-name: move;
-  animation-duration: 3s;
-  animation-timing-function: linear;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .img-fluid {
   width: 100%;
-  height: 350px;
-  transition: transform 3s ease-in-out;
-  object-fit: cover; /* Ensures consistent image scaling */
+  height: 300px;
+  object-fit: cover;
+  display: block;
 }
 
 .imgOverlay {
   width: 100%;
-  margin-top: 10px; /* Space between the image and text */
-  padding: 20px;
-  background-color: rgb(240, 168, 26); /* Light orange background */
-  opacity: 1; /* Always visible */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
+  padding: 1.5rem;
+  background-color: rgb(240, 168, 26);
+  color: white;
 }
 
 .imgText {
   text-align: center;
-  color: black;
-  max-width: 100%;
 }
 
-@keyframes move {
-  from {
-    transform: translateX(0);
+.imgText h4 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.imgText p {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.btn-outline-primary {
+  border-color: white;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: white;
+  color: rgb(240, 168, 26);
+}
+
+@media (max-width: 992px) {
+  .products-grid {
+    padding: 0 1rem;
   }
-  to {
-    transform: translateY(100px);
+  
+  .product-card {
+    flex: 0 0 100%;
+    max-width: 500px;
   }
 }
 
 @media (max-width: 768px) {
-  .imageContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  .img-fluid {
+    height: 250px;
   }
 
   .imgOverlay {
-    position: relative; 
-    width: 100%;
-    height: auto;
-    background-color: transparent;
-    padding: 10px;
+    padding: 1rem;
   }
 
-  .imgText {
-    text-align: center;
-    padding: 10px;
+  .imgText h4 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .imgText p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
   }
 }
 
