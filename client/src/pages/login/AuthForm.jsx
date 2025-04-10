@@ -32,7 +32,7 @@ const LoginPage = () => {
 
   // Google Login handler
   const handleGoogleSignIn = () => {
-    window.open("http://localhost:5001/auth/google/callback", "_self");
+    window.location.href = `${process.env.REACT_APP_API_URL}/auth/google`;
   };
 
   // Logout handler
@@ -45,15 +45,20 @@ const LoginPage = () => {
   // Save user and token after Google login redirect
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-  const token = params.get('token');
-  const user = params.get('user');
+    const token = params.get('token');
+    const user = params.get('user');
 
-  if (token && user) {
-    // Save to localStorage
-    localStorage.setItem('token', token);
-    localStorage.setItem('user', user);
-    setUser(JSON.parse(user)); // Update the UI state
-  }
+    if (token && user) {
+      try {
+        const userData = JSON.parse(user);
+        // Save to localStorage
+        localStorage.setItem('profile', JSON.stringify({ result: userData, token }));
+        setUser(userData);
+        navigate('/');
+      } catch (error) {
+        console.error('Error parsing user data:', error);
+      }
+    }
   }, [navigate]);
 
   // Toggle Between Login and Sign Up

@@ -1,8 +1,7 @@
 import axios from "axios"
 
-//const url = "http://localhost:5001/stories" 415
 
-const api = axios.create({baseURL: "http://localhost:5001"});
+const api = axios.create({baseURL: "https://brighterworldltd.com/"});
 
 api.interceptors.request.use((req) => {
 

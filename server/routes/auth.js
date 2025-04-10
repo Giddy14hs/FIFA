@@ -25,19 +25,29 @@ router.get("/login/failed", (req, res) => {
 });
 
 // Routes for Google authentication
-router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'],
-  accessType: 'offline',  // Optional for offline access
- }));
+router.get('/google', passport.authenticate('google', { 
+  scope: ['profile', 'email'],
+  accessType: 'offline',
+  prompt: 'select_account'  // This ensures the user always sees the account selector
+}));
 
 router.get('/google/callback',
   passport.authenticate('google', { 
-    failureRedirect: '/login/failed' }),
-    (req, res) => {
-      const token = req.user.token; // Token generated during login
-      const user = req.user; // User data
-      res.redirect(`http://localhost:3000?token=${token}&user=${JSON.stringify(user)}`);
-      
-    } 
+    failureRedirect: '/login/failed',
+    session: false  // We're using JWT, so we don't need sessions
+  }),
+  (req, res) => {
+    // Successful authentication
+    const token = req.user.token;
+    const user = {
+      id: req.user.id,
+      username: req.user.username,
+      email: req.user.email
+    };
+    
+    // Redirect to the frontend with the token and user data
+    res.redirect(`${process.env.FRONTEND_URL}/login?token=${token}&user=${JSON.stringify(user)}`);
+  } 
 );
 
 

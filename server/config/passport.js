@@ -5,6 +5,7 @@ import { OAuth2Client } from 'google-auth-library';
 import express from "express";
 import User from '../models/user.js';
 import nodemailer from "nodemailer"
+import jwt from "jsonwebtoken"
 const app = express()
 dotenv.config()
 
@@ -16,21 +17,33 @@ passport.use(new GoogleStrategy({
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
   callbackURL: process.env.GOOGLE_CALLBACK_URL,
   scope: ['profile', 'email'],
-}, async (accessToken, refreshToken, profile, done) => {
+  passReqToCallback: true
+}, async (req, accessToken, refreshToken, profile, done) => {
   try {
     // Find or create user logic based on the Google profile info
-    let user = await User.findOne({ email: profile.emails[0].value });
+    let user = await User.findOne({ where: { email: profile.emails[0].value } });
 
     if (!user) {
       // If user does not exist, create a new one
       user = await User.create({
-				googleId: profile.id,
+        googleId: profile.id,
         username: profile.displayName,
         email: profile.emails[0].value,
       });
     }
-     // Send the welcome email to the newly created user
-     const transporter = nodemailer.createTransport({
+
+    // Generate a token for the user
+    const token = jwt.sign(
+      { id: user.id, email: user.email },
+      process.env.JWT_SECRET,
+      { expiresIn: '1d' }
+    );
+
+    // Add the token to the user object
+    user.token = token;
+
+    // Send the welcome email to the newly created user
+    const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
         user: process.env.EMAIL_USER,
@@ -50,7 +63,7 @@ passport.use(new GoogleStrategy({
     </div>
     <div>
       <!-- Main Content -->
-      <p>We’re thrilled to have you join us as part of a community dedicated to empowering financial growth. Here’s how we can help:</p>
+      <p>We're thrilled to have you join us as part of a community dedicated to empowering financial growth. Here's how we can help:</p>
       <ul style="padding-left: 20px;">
         <li>Flexible savings plans to grow your wealth.</li>
         <li>Benevolent fund options for life's unexpected moments.</li>
@@ -81,10 +94,10 @@ passport.use(new GoogleStrategy({
     await transporter.sendMail(mailOptions);
     console.log('Welcome email sent to', user.email);
 
-    // Return the user information to the next function
     return done(null, user);
   } catch (error) {
-    return done(error, false);
+    console.error('Error in Google strategy:', error);
+    return done(error, null);
   }
 }));
 
