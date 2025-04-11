@@ -22,19 +22,23 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: false,
+    secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
     httpOnly: true,
-  },
-  store: new session.MemoryStore() // Using memory store for now, you might want to use a different store in production
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  }
 }));
 
+// Initialize passport
 app.use(passport.initialize());
 app.use(passport.session());
 
+// CORS configuration
 const corsOptions = {
-  origin: 'http://localhost:3000',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: [process.env.FRONTEND_URL, 'http://localhost:3000'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization']
 };
 
 app.use(cors(corsOptions));
@@ -47,7 +51,12 @@ app.use("/users", userRoutes);
 app.use("/forms", formRoutes);
 app.use("/auth", authRoutes);
 
-const PORT = process.env.PORT || 3306;
+// Health check route
+app.get('/', (req, res) => {
+  res.send('API is running');
+});
+
+const PORT = process.env.PORT;
 
 // Sync database and start server
 const startServer = async () => {

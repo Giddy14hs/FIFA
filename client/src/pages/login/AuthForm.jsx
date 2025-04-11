@@ -32,7 +32,26 @@ const LoginPage = () => {
 
   // Google Login handler
   const handleGoogleSignIn = () => {
-    window.location.href = `${process.env.REACT_APP_API_URL}/auth/google`;
+    // Open Google OAuth in a popup window
+    const width = 600;
+    const height = 600;
+    const left = window.screen.width / 2 - width / 2;
+    const top = window.screen.height / 2 - height / 2;
+    
+    const popup = window.open(
+      `${process.env.REACT_APP_API_URL}/auth/google`,
+      'Google OAuth',
+      `width=${width},height=${height},left=${left},top=${top}`
+    );
+
+    // Add a message listener to handle the popup being closed
+    const checkPopup = setInterval(() => {
+      if (popup.closed) {
+        clearInterval(checkPopup);
+        // Handle popup being closed without completing the flow
+        console.log('Popup was closed without completing the authentication');
+      }
+    }, 1000);
   };
 
   // Logout handler
@@ -42,23 +61,22 @@ const LoginPage = () => {
     navigate("/");
   };
 
-  // Save user and token after Google login redirect
+  // Add message listener for OAuth callback
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const token = params.get('token');
-    const user = params.get('user');
-
-    if (token && user) {
-      try {
-        const userData = JSON.parse(user);
-        // Save to localStorage
-        localStorage.setItem('profile', JSON.stringify({ result: userData, token }));
-        setUser(userData);
-        navigate('/');
-      } catch (error) {
-        console.error('Error parsing user data:', error);
+    const handleMessage = (event) => {
+      // Check if the message is from our OAuth popup
+      if (event.origin === process.env.REACT_APP_API_URL) {
+        const { token, user } = event.data;
+        if (token && user) {
+          localStorage.setItem('profile', JSON.stringify({ token, user }));
+          setUser({ token, user });
+          navigate('/');
+        }
       }
-    }
+    };
+
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
   }, [navigate]);
 
   // Toggle Between Login and Sign Up

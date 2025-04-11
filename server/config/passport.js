@@ -11,7 +11,22 @@ dotenv.config()
 
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
+// Serialize user
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
 
+// Deserialize user
+passport.deserializeUser(async (id, done) => {
+  try {
+    const user = await User.findByPk(id);
+    done(null, user);
+  } catch (error) {
+    done(error, null);
+  }
+});
+
+// Google Strategy
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
@@ -100,31 +115,3 @@ passport.use(new GoogleStrategy({
     return done(error, null);
   }
 }));
-
-
-
-// used to serialize the user for the session
-passport.serializeUser((user, done) => {
-  done(null, user.id)
-})
-
-// used to deserialize the user
-passport.deserializeUser(async (googleId, done) => {
-  try {
-    console.log("Deserializing User:", googleId);
-
-    // Use findOne instead of findById for the googleId field
-    const user = await User.findOne({ googleId });
-
-    if (!user) {
-      console.error("User not found for googleId:", googleId);
-      return done(null, false); // Return false if no user is found
-    }
-
-    console.log("User deserialized successfully:", user);
-    done(null, user); // Pass the user to the session
-  } catch (error) {
-    console.error("Error in deserializing user:", error);
-    done(error, null); // Pass the error to Passport
-  }
-});

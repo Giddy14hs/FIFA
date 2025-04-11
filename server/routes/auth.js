@@ -28,26 +28,39 @@ router.get("/login/failed", (req, res) => {
 router.get('/google', passport.authenticate('google', { 
   scope: ['profile', 'email'],
   accessType: 'offline',
-  prompt: 'select_account'  // This ensures the user always sees the account selector
+  prompt: 'select_account'
 }));
 
-router.get('/google/callback',
+router.get('/google/callback', 
   passport.authenticate('google', { 
-    failureRedirect: '/login/failed',
-    session: false  // We're using JWT, so we don't need sessions
+    failureRedirect: '/auth/login/failed',
+    session: false
   }),
   (req, res) => {
-    // Successful authentication
-    const token = req.user.token;
-    const user = {
-      id: req.user.id,
-      username: req.user.username,
-      email: req.user.email
-    };
-    
-    // Redirect to the frontend with the token and user data
-    res.redirect(`${process.env.FRONTEND_URL}/login?token=${token}&user=${JSON.stringify(user)}`);
-  } 
+    try {
+      // Successful authentication
+      const token = req.user.token;
+      const user = {
+        id: req.user.id,
+        username: req.user.username,
+        email: req.user.email
+      };
+      
+      // Send a message to the opener window and close the popup
+      res.send(`
+        <script>
+          window.opener.postMessage({
+            token: '${token}',
+            user: ${JSON.stringify(user)}
+          }, '${process.env.FRONTEND_URL}');
+          window.close();
+        </script>
+      `);
+    } catch (error) {
+      console.error('Error in Google callback:', error);
+      res.redirect('/auth/login/failed');
+    }
+  }
 );
 
 
