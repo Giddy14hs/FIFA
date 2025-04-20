@@ -35,11 +35,12 @@ const User = sequelize.define('User', {
     },
     password: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true // Changed to true since Google users won't have a password
     },
     googleId: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: true,
+        unique: true
     }
 }, {
     hooks: {
