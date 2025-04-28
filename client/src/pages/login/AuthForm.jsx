@@ -126,8 +126,8 @@ const LoginPage = () => {
             </Form.Item>
           </Form>
 
-          {/* Google Sign In or Logout */}
-          {!user ? (
+          {/*Google Sign In or Logout */}
+           {/* {!user ? (
             <Button className="googleLoginButton" onClick={handleGoogleSignIn}>
               Sign in with Google
             </Button>
@@ -135,7 +135,7 @@ const LoginPage = () => {
             <Button className="logoutButton" onClick={handleLogout}>
               Logout
             </Button>
-          )}
+        )} */}
 
           <Text className="signupText">
             {isLogin ? "New Here?" : "Already have an account?"}
